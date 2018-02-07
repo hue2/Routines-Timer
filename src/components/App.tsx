@@ -1,6 +1,6 @@
 import * as React from 'react';
 import '../styles/App.css';
-
+import Clock from './Clock';
 const logo = require('../styles/logo.svg');
 
 class App extends React.Component {
@@ -14,6 +14,7 @@ class App extends React.Component {
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <Clock value={10}/>
       </div>
     );
   }

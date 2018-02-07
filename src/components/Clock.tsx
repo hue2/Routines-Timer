@@ -1,27 +1,25 @@
 import * as React from 'react';
 
 type TimeState = {
-    time: number,
+    value: number,
 };
 
 type TimeProps = {
-    time: number;
+    value: number;
 };
 
 export default class Clock extends React.Component<TimeProps, TimeState>  {
     constructor(props: TimeProps) {
         super(props);
-        this.state = { time: this.props.time };
+        this.state = { value: this.props.value };
     }
 
     tick = () => {
-        if (this.state.time === 0) {
+        if (this.state.value === 0) {
             this.clearTimer();
-        }
-        else {
-            this.setState({ time: this.state.time - 1});       
-        }
-        
+        } else {
+            this.setState({ value: this.state.value - 1});       
+        }    
     }
     clearTimer = () => {
         //@ts-ignore
@@ -35,8 +33,9 @@ export default class Clock extends React.Component<TimeProps, TimeState>  {
     render() {
         return(
             <div>
-                <button onClick={this.startTimer}>Start</button>
-                {this.state.time}
+                <div className="timeDiv">{this.state.value}</div>
+                <br />
+                <button id="startTimer" onClick={this.startTimer}>Start</button>
             </div>
         );
     }
