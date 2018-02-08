@@ -33,7 +33,7 @@ export default class Clock extends React.Component<TimeProps, TimeState>  {
     render() {
         return(
             <div>
-                <div className="timeDiv">{this.state.value}</div>
+                <div className="timeDiv"><b>{this.state.value}</b></div>
                 <br />
                 <button id="startTimer" onClick={this.startTimer}>Start</button>
             </div>

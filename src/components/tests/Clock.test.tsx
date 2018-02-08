@@ -10,12 +10,11 @@ it('renders without crashing1', () => {
 
 
 it('time div reflects value from input', () => {
-  const clock = shallow(<Clock value={10} />);
-  expect(clock.find(".timeDiv").text()).toBe("10");
+  const wrapper = shallow(<Clock value={10} />);
+  expect(wrapper.find(".timeDiv").text()).toBe("10");
 })
 
 it('clicking start button would call function', () => {
-  const startTimer = jest.fn();
   const wrapper = shallow(<Clock value={10} />);
   expect(wrapper.find('#startTimer')).toBeTruthy();
   // wrapper.find('#startTimer').simulate('click');

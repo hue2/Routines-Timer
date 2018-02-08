@@ -1,20 +1,31 @@
 import * as React from 'react';
 import '../styles/App.css';
 import Clock from './Clock';
-const logo = require('../styles/logo.svg');
+import ClockOptions from './ClockOptions';
 
-class App extends React.Component {
+
+type AppState = {
+  show: boolean,
+}
+
+type AppProps = {
+
+}
+
+class App extends React.Component<AppProps, AppState> {
+  constructor(props: AppProps) {
+    super(props);
+    this.state = { show: false }
+  }
+  openModal = () => this.setState({ show: true });
+  closeModal= () => this.setState({ show: false });
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <button onClick={this.openModal}>Show Options Modal</button>
         <Clock value={10}/>
+        <ClockOptions openModal={this.openModal} closeModal={this.closeModal} show={this.state.show} />
       </div>
     );
   }
