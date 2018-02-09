@@ -1,41 +1,23 @@
 import * as React from 'react';
 
-type TimeState = {
-    value: number,
-};
-
 type TimeProps = {
-    value: number;
+    value?: number,
+    hour: number,
+    minute: number,
+    seconds: number,
+    minuteBreak: number,
+    secondBreak: number,
+    repeats: number,
+    startTimer: () => void
 };
 
-export default class Clock extends React.Component<TimeProps, TimeState>  {
-    constructor(props: TimeProps) {
-        super(props);
-        this.state = { value: this.props.value };
-    }
-
-    tick = () => {
-        if (this.state.value === 0) {
-            this.clearTimer();
-        } else {
-            this.setState({ value: this.state.value - 1});       
-        }    
-    }
-    clearTimer = () => {
-        //@ts-ignore
-        clearInterval(this.interval);
-    }
-    startTimer = () => {
-        //@ts-ignore
-        this.interval = setInterval(this.tick, 1000);
-        
-    }
+export default class Clock extends React.Component<TimeProps>  {
     render() {
         return(
             <div>
-                <div className="timeDiv"><b>{this.state.value}</b></div>
+                <div className="timeDiv"><b>{this.props.hour} : {this.props.minute} : {this.props.seconds}</b></div>
                 <br />
-                <button id="startTimer" onClick={this.startTimer}>Start</button>
+                <button id="startTimer" onClick={this.props.startTimer}>Start</button>
             </div>
         );
     }
