@@ -8,14 +8,36 @@ type TimeProps = {
     minuteBreak: number,
     secondBreak: number,
     repeats: number,
-    startTimer: () => void
+    startTimer: () => void,
+    isBreak?: boolean
 };
 
 export default class Clock extends React.Component<TimeProps>  {
+    formatNumber(hour: boolean, minute: boolean, second: boolean,) {
+        let time;
+        if (minute) {
+            time = this.props.isBreak ? this.props.minuteBreak : this.props.minute;
+        }
+        else if (second) {
+            time = this.props.isBreak ? this.props.secondBreak : this.props.seconds;
+            return (time.toString().length < 2) ? "0" + time : time;
+        }
+        else {
+            time = this.props.hour;
+        }
+        return (time.toString().length < 2) ? "0" + time : time;
+    }
     render() {
         return(
             <div>
-                <div className="timeDiv"><b>{this.props.hour} : {this.props.minute} : {this.props.seconds}</b></div>
+                <div className={this.props.isBreak ? "hidden" : "time"} id="time-countdown"><b>
+                {this.formatNumber(true, false, false)}:{this.formatNumber(false, true, false)}:{this.formatNumber(false, false, true)}</b>
+                </div>
+                <div className={!this.props.isBreak ? "hidden" : "time"} id ="break-countdown">
+                <h3>Break time!</h3>
+                <b>
+                {this.formatNumber(false, true, false)}:{this.formatNumber(false, false, true)}</b>
+                </div>
                 <br />
                 <button id="startTimer" onClick={this.props.startTimer}>Start</button>
             </div>

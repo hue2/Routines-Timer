@@ -41,7 +41,7 @@ export default class ClockOptions extends React.Component<ClockOptionsProps, Clo
     render() {
         return(
             <div id="myNav" className="overlay" style={this.props.navOpen ? style.open : style.close }>
-            <a href="javascript:void(0)" className="closebtn" onClick={this.props.navClose}>&times;</a>
+            <a href="" className="closebtn" onClick={this.props.navClose}>&times;</a>
                 <div className="overlay-content">
                     <div className="option-div">
                         <span className="option-label">Time: </span>

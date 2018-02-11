@@ -20,6 +20,15 @@
   left: 2px;
 }
 
+#startTimer:hover {
+  cursor: pointer;
+}
+
+#openNav:hover {
+  cursor: pointer;
+  color: #3493ce;
+}
+
 body, html{
   margin:0;
   padding:0;
@@ -31,7 +40,7 @@ body, html{
   border: 1px;
 }
 
-.timeDiv {
+.time {
   font-size: 70px;
 }
 
@@ -68,3 +77,6 @@ input:focus {
   caret-color: white;
 }
 
+.hidden {
+  display: none;
+}
