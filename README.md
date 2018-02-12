@@ -1,1 +1,1 @@
-A timer with options to set up routines.
+With this timer, you can set up a routine with breaks and repeats options in between. Use it for studying, workout, etc. The possibilities are limitless!
