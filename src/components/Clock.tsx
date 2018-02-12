@@ -20,10 +20,12 @@ export default class Clock extends React.Component<TimeProps>  {
         }
         else if (second) {
             time = this.props.isBreak ? this.props.secondBreak : this.props.seconds;
-            return (time.toString().length < 2) ? "0" + time : time;
+        }
+        else if (hour) {
+            time = this.props.hour;
         }
         else {
-            time = this.props.hour;
+            time = "0";
         }
         return (time.toString().length < 2) ? "0" + time : time;
     }

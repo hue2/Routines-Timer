@@ -41,26 +41,32 @@ export default class ClockOptions extends React.Component<ClockOptionsProps, Clo
     render() {
         return(
             <div id="myNav" className="overlay" style={this.props.navOpen ? style.open : style.close }>
-            <a href="" className="closebtn" onClick={this.props.navClose}>&times;</a>
+            <a href="javascript:void(0)" className="closebtn" onClick={this.props.navClose}>&times;</a>
                 <div className="overlay-content">
                     <div className="option-div">
-                        <span className="option-label">Time: </span>
-                        <input type="text" placeholder="hh" maxLength={this.state.maxLength} onBlur={this.props.setHour}/>
+                        <div className="option-label">Time: </div>
+                        <div className="input-time">
+                        <input type="text" placeholder="hh" maxLength={this.state.maxLength} onChange={this.props.setHour}/>
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="mm" maxLength={this.state.maxLength} onBlur={this.props.setMinute}/>
+                        <input type="text" placeholder="mm" maxLength={this.state.maxLength} onChange={this.props.setMinute}/>
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} onBlur={this.props.setSeconds}/>
+                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} onChange={this.props.setSeconds}/>
+                        </div>
                     </div>
                     <div className="option-div">
-                        <span className="option-label">Breaks: </span>
-                        <input type="text" placeholder="mm" maxLength={this.state.maxLength} onBlur={this.props.setMinuteBreak}/>
+                        <div className="option-label">Breaks: </div>
+                        <div className="input-time">
+                        <input type="text" placeholder="mm" maxLength={this.state.maxLength} onChange={this.props.setMinuteBreak}/>
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} onBlur={this.props.setSecondsBreak}/>
+                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} onChange={this.props.setSecondsBreak}/>
+                        </div>
                     </div>
 
                     <div className="option-div">
-                        <span className="option-label">Repeats: </span>
-                        <input type="text" maxLength={this.state.maxLength} onBlur={this.props.setRepeats}/>
+                        <div className="option-label">Repeats: </div>
+                        <div className="input-time">
+                        <input type="text" maxLength={this.state.maxLength} onChange={this.props.setRepeats}/>
+                        </div>
                     </div>
                  
                 </div>

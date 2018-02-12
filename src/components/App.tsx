@@ -3,6 +3,7 @@ import '../styles/App.css';
 import '../styles/Options.css';
 import Clock from './Clock';
 import ClockOptions from './ClockOptions';
+import 'font-awesome/css/font-awesome.min.css';
 
 
 type AppState = {
@@ -56,6 +57,7 @@ export default class App extends React.Component<AppProps, AppState> {
     }
     
   }
+
   clearTimer = () => {
       //@ts-ignore
       clearInterval(this.interval);
@@ -117,27 +119,29 @@ export default class App extends React.Component<AppProps, AppState> {
   }
   render() {
     return (
-      <div className="App">
-        <Clock hour={this.state.tempHour} 
-        minute={this.state.tempMin}
-        seconds={this.state.tempSecond} 
-        minuteBreak={this.state.tempMinuteBreak} 
-        secondBreak={this.state.tempSecondBreak} 
-        repeats={this.state.repeats} 
-        startTimer={this.startTimer}
-        isBreak={this.state.isBreak}
-        />
-        <ClockOptions 
-        navOpen={this.state.show} 
-        navClose={this.closeNav}
-        setHour={this.setHour}
-        setMinute={this.setMinute}
-        setSeconds={this.setSeconds}
-        setMinuteBreak={this.setMinuteBreak}
-        setSecondsBreak={this.setSecondsBreak}
-        setRepeats={this.setRepeats}
-        />
-        <span id="openNav" onClick={this.openNav} >&#9776; open</span>
+        <div className="App">
+          <Clock hour={this.state.tempHour} 
+          minute={this.state.tempMin}
+          seconds={this.state.tempSecond} 
+          minuteBreak={this.state.tempMinuteBreak} 
+          secondBreak={this.state.tempSecondBreak} 
+          repeats={this.state.repeats} 
+          startTimer={this.startTimer}
+          isBreak={this.state.isBreak}
+          />
+          <ClockOptions 
+          navOpen={this.state.show} 
+          navClose={this.closeNav}
+          setHour={this.setHour}
+          setMinute={this.setMinute}
+          setSeconds={this.setSeconds}
+          setMinuteBreak={this.setMinuteBreak}
+          setSecondsBreak={this.setSecondsBreak}
+          setRepeats={this.setRepeats}
+          />
+          <div id="openNav" onClick={this.openNav} ><i className="fa fa-gear"></i> 
+          Settings
+          </div>
       </div>
     );
   }
