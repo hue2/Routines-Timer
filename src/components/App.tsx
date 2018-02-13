@@ -21,7 +21,8 @@ type AppState = {
   tempHour: number,
   tempSecond: number,
   tempMinuteBreak: number,
-  tempSecondBreak: number
+  tempSecondBreak: number,
+  isPaused: boolean
 }
 
 type AppProps = {
@@ -32,7 +33,8 @@ export default class App extends React.Component<AppProps, AppState> {
   constructor(props: AppProps) {
     super(props);
     this.state = { show: false, value: 0, hour: 0, minute: 0, seconds: 0, minuteBreak: 0, secondBreak: 0, repeats: 0, isBreak: false,
-                  tempMin: 0, tempHour: 0, tempSecond: 0, tempMinuteBreak: 0, tempSecondBreak: 0
+                  tempMin: 0, tempHour: 0, tempSecond: 0, tempMinuteBreak: 0, tempSecondBreak: 0,
+                  isPaused: false
                   }
   }
  
@@ -46,21 +48,27 @@ export default class App extends React.Component<AppProps, AppState> {
   setRepeats = (event: any) => this.setState({ repeats: event.target.value });
   
   tick = () => {
-    if (this.state.value === 0) {
-        this.clearTimer();
-        this.startTimer();
-    } else if (!this.state.isBreak) {
-        this.setState({ value: this.state.value - 1, tempSecond: this.state.value - 1 });       
-    }    
-    else if (this.state.isBreak) {
-        this.setState({ value: this.state.value - 1, tempSecondBreak: this.state.value - 1 });     
+    if (!this.state.isPaused) {
+      if (this.state.value === 0) {
+          this.clearTimer();
+          this.startTimer();
+      } else if (!this.state.isBreak) {
+          this.setState({ value: this.state.value - 1, tempSecond: this.state.value - 1 });       
+      }    
+      else if (this.state.isBreak) {
+          this.setState({ value: this.state.value - 1, tempSecondBreak: this.state.value - 1 });     
+      }
     }
-    
   }
 
   clearTimer = () => {
       //@ts-ignore
       clearInterval(this.interval);
+  }
+
+  handlePause = () => {
+      this.setState({ isPaused: true });
+      this.clearTimer();
   }
 
   handleTimeConvert = () => {
@@ -108,14 +116,15 @@ export default class App extends React.Component<AppProps, AppState> {
 
   startTimer = () => { 
       this.closeNav();
-
       //this check will allow minutes and hours to be converted to seconds for countdown
       if (this.state.value < 1) {
           this.handleTimeConvert();
       }
-      //@ts-ignore
-      this.interval = setInterval(this.tick, 1000);
+      this.setState({ isPaused: false })
       
+      //@ts-ignore
+      this.interval = setInterval(this.tick, 1000);     
+    
   }
   render() {
     return (
@@ -128,6 +137,7 @@ export default class App extends React.Component<AppProps, AppState> {
           repeats={this.state.repeats} 
           startTimer={this.startTimer}
           isBreak={this.state.isBreak}
+          handlePause={this.handlePause}
           />
           <ClockOptions 
           navOpen={this.state.show} 
