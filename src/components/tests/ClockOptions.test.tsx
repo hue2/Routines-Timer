@@ -13,6 +13,12 @@ it('nav bar is closed when clicked on the x button', () => {
         setMinuteBreak={() => {}}
         setSecondsBreak={() => {}}
         setRepeats={() => {}}
+        hour={0}
+        minute={0}
+        seconds={0}
+        minuteBreak={0}
+        secondBreak={0}
+        repeats={0}
         />);
     wrapper.find('.closebtn').simulate('click');
     expect(closeNav).toHaveBeenCalled();

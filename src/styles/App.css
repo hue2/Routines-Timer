@@ -1,16 +1,15 @@
 .hidden {
   display: none; }
 
-.inline-block, #startTimer, .input-time {
+.inline-block, .timer-btn, .gray-btn, .input-time {
   display: inline-block; }
 
 .App {
   margin-top: 15%;
   text-align: center; }
 
-#startTimer {
+.timer-btn, .gray-btn {
   border-radius: 20px;
-  background: #3493ce;
   color: white;
   border: none;
   padding: 20px 60px;
@@ -18,12 +17,33 @@
   cursor: pointer;
   outline: none;
   font-size: 20pt; }
-  #startTimer:active {
+  .timer-btn:active, .gray-btn:active {
     top: 3px;
     left: 2px; }
-  #startTimer:hover {
+
+.primary-btn {
+  background: #3493ce; }
+  .primary-btn:hover {
     cursor: pointer;
     background: #2b7daf; }
+
+.orange-btn {
+  background: #f4a742; }
+  .orange-btn:hover {
+    cursor: pointer;
+    background: #db963b; }
+
+.red-btn {
+  background: red; }
+  .red-btn:hover {
+    cursor: pointer;
+    background: darkred; }
+
+.gray-btn {
+  background: gray; }
+  .gray-btn:hover {
+    cursor: pointer;
+    background: darkgray; }
 
 #openNav {
   margin-top: 20px; }

@@ -1,5 +1,7 @@
 $button-blue: #3493ce;
 $hover-blue: #2b7daf;
+$button-orange: #f4a742;
+$hover-orange: #db963b;
 
 .hidden {
   display: none;
@@ -14,9 +16,8 @@ $hover-blue: #2b7daf;
   text-align: center;
 }
 
-#startTimer {
+.timer-btn {
   border-radius: 20px;
-  background: $button-blue;
   color: white;
   border: none;
   padding: 20px 60px;
@@ -30,10 +31,40 @@ $hover-blue: #2b7daf;
     top: 3px;
     left: 2px;
   }
+}
 
+.primary-btn {
+  background: $button-blue;
+  
   &:hover {
     cursor: pointer;
     background: $hover-blue;
+  }
+}
+
+.orange-btn {
+  background: $button-orange;
+
+  &:hover {
+    cursor: pointer;
+    background: $hover-orange;
+  }
+}
+
+.red-btn {
+  background: red;
+  &:hover {
+    cursor: pointer;
+    background: darkred;
+  }
+}
+
+.gray-btn {
+  @extend .timer-btn;
+  background: gray;
+  &:hover {
+    cursor: pointer;
+    background: darkgray;
   }
 }
 

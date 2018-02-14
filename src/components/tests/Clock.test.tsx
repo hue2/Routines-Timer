@@ -10,7 +10,7 @@ it('time div reflects value from input', () => {
     secondBreak={0}
     repeats={0}
     startTimer={() => {}} 
-    handlePause={() => {}} />);
+    handlePause={() => {}} isPaused={false} showOptions={true} onReset={() => {}} onRestart={() => {}}/>);
   expect(wrapper.find("#time-countdown").text()).toBe("01:01:01");
 })
 
@@ -23,7 +23,7 @@ it('clicking start button would start the timer', () => {
     secondBreak={0}
     repeats={0}
     startTimer={startTimer} 
-    handlePause={() => {}} />);
+    handlePause={() => {}} isPaused={false} showOptions={true} onReset={() => {}} onRestart={() => {}}/>);
   wrapper.find('#startTimer').simulate('click');
   expect(startTimer).toBeCalled();
 })
@@ -37,7 +37,7 @@ it('clicking the pause button would cause pause timer', () => {
     secondBreak={0}
     repeats={0}
     startTimer={() => {}} 
-    handlePause={pauseTimer} />);
+    handlePause={pauseTimer} isPaused={false} showOptions={true} onReset={() => {}} onRestart={() => {}}/>);
     wrapper.find('#pauseTimer').simulate('click');
     expect(pauseTimer).toBeCalled();
 })

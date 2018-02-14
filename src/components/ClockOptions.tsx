@@ -17,6 +17,12 @@ type ClockOptionsProps = {
     setMinuteBreak: (event: any) => void,
     setSecondsBreak: (event: any) => void,
     setRepeats: (event: any) => void,
+    hour: number,
+    minute: number,
+    seconds: number,
+    minuteBreak: number,
+    secondBreak: number,
+    repeats: number,
 }
 
 const style = {
@@ -48,7 +54,7 @@ export default class ClockOptions extends React.Component<ClockOptionsProps, Clo
                         <div className="input-time">
                         <input type="text" placeholder="hh" maxLength={this.state.maxLength} onChange={this.props.setHour}/>
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="mm" maxLength={this.state.maxLength} onChange={this.props.setMinute}/>
+                        <input type="text" placeholder="mm" maxLength={this.state.maxLength}  onChange={this.props.setMinute}/>
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
                         <input type="text" placeholder="ss" maxLength={this.state.maxLength} onChange={this.props.setSeconds}/>
                         </div>
