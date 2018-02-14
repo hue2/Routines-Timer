@@ -9,23 +9,23 @@ it('time div reflects value from input', () => {
     minuteBreak={0}
     secondBreak={0}
     repeats={0}
-    startTimer={() => {}} 
+    handleStartTimer={() => {}} 
     handlePause={() => {}} isPaused={false} showOptions={true} onReset={() => {}} onRestart={() => {}}/>);
   expect(wrapper.find("#time-countdown").text()).toBe("01:01:01");
 })
 
 it('clicking start button would start the timer', () => {
-  const startTimer = jest.fn();
+  const handleStartTimer = jest.fn();
   const wrapper = shallow(<Clock hour={0}
     minute={0}
     seconds={0}
     minuteBreak={0}
     secondBreak={0}
     repeats={0}
-    startTimer={startTimer} 
+    handleStartTimer={handleStartTimer} 
     handlePause={() => {}} isPaused={false} showOptions={true} onReset={() => {}} onRestart={() => {}}/>);
-  wrapper.find('#startTimer').simulate('click');
-  expect(startTimer).toBeCalled();
+  wrapper.find('#handleStartTimer').simulate('click');
+  expect(handleStartTimer).toBeCalled();
 })
 
 it('clicking the pause button would cause pause timer', () => {
@@ -36,7 +36,7 @@ it('clicking the pause button would cause pause timer', () => {
     minuteBreak={0}
     secondBreak={0}
     repeats={0}
-    startTimer={() => {}} 
+    handleStartTimer={() => {}} 
     handlePause={pauseTimer} isPaused={false} showOptions={true} onReset={() => {}} onRestart={() => {}}/>);
     wrapper.find('#pauseTimer').simulate('click');
     expect(pauseTimer).toBeCalled();

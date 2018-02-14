@@ -11,12 +11,12 @@ type ClockOptionsState = {
 type ClockOptionsProps = {
     navOpen: boolean,
     navClose: () => void,
-    setHour: (event: any) => void,
-    setMinute: (event: any) => void,
-    setSeconds: (event: any) => void,
-    setMinuteBreak: (event: any) => void,
-    setSecondsBreak: (event: any) => void,
-    setRepeats: (event: any) => void,
+    handleSetHour: (event: any) => void,
+    handleSetMinute: (event: any) => void,
+    handleSetSeconds: (event: any) => void,
+    handleSetMinuteBreak: (event: any) => void,
+    handleSetSecondsBreak: (event: any) => void,
+    handleSetRepeats: (event: any) => void,
     hour: number,
     minute: number,
     seconds: number,
@@ -41,7 +41,7 @@ export default class ClockOptions extends React.Component<ClockOptionsProps, Clo
         this.state = { show: false, maxLength: 3 }
     }
 
-    openNav = () => {}
+    handleOpenNav = () => {}
     setTimer = () => {}
 
     render() {
@@ -52,26 +52,26 @@ export default class ClockOptions extends React.Component<ClockOptionsProps, Clo
                     <div className="option-div">
                         <div className="option-label">Time: </div>
                         <div className="input-time">
-                        <input type="text" placeholder="hh" maxLength={this.state.maxLength} onChange={this.props.setHour}/>
+                        <input type="text" placeholder="hh" maxLength={this.state.maxLength} onChange={this.props.handleSetHour}/>
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="mm" maxLength={this.state.maxLength}  onChange={this.props.setMinute}/>
+                        <input type="text" placeholder="mm" maxLength={this.state.maxLength}  onChange={this.props.handleSetMinute}/>
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} onChange={this.props.setSeconds}/>
+                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} onChange={this.props.handleSetSeconds}/>
                         </div>
                     </div>
                     <div className="option-div">
                         <div className="option-label">Breaks: </div>
                         <div className="input-time">
-                        <input type="text" placeholder="mm" maxLength={this.state.maxLength} onChange={this.props.setMinuteBreak}/>
+                        <input type="text" placeholder="mm" maxLength={this.state.maxLength} onChange={this.props.handleSetMinuteBreak}/>
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} onChange={this.props.setSecondsBreak}/>
+                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} onChange={this.props.handleSetSecondsBreak}/>
                         </div>
                     </div>
 
                     <div className="option-div">
                         <div className="option-label">Repeats: </div>
                         <div className="input-time">
-                        <input type="text" maxLength={this.state.maxLength} onChange={this.props.setRepeats}/>
+                        <input type="text" maxLength={this.state.maxLength} onChange={this.props.handleSetRepeats}/>
                         </div>
                     </div>
                  

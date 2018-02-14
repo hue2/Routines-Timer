@@ -45,9 +45,9 @@
     cursor: pointer;
     background: darkgray; }
 
-#openNav {
+#handleOpenNav {
   margin-top: 20px; }
-  #openNav:hover {
+  #handleOpenNav:hover {
     cursor: pointer;
     color: #3493ce; }
 

@@ -3,16 +3,16 @@ import {shallow} from 'enzyme';
 import ClockOptions from '../ClockOptions';
 
 it('nav bar is closed when clicked on the x button', () => {
-    const closeNav = jest.fn();
+    const handleCloseNav = jest.fn();
     const wrapper = shallow( <ClockOptions 
         navOpen={true} 
-        navClose={closeNav}
-        setHour={() => {}}
-        setMinute={() => {}}
-        setSeconds={() => {}}
-        setMinuteBreak={() => {}}
-        setSecondsBreak={() => {}}
-        setRepeats={() => {}}
+        navClose={handleCloseNav}
+        handleSetHour={() => {}}
+        handleSetMinute={() => {}}
+        handleSetSeconds={() => {}}
+        handleSetMinuteBreak={() => {}}
+        handleSetSecondsBreak={() => {}}
+        handleSetRepeats={() => {}}
         hour={0}
         minute={0}
         seconds={0}
@@ -21,5 +21,5 @@ it('nav bar is closed when clicked on the x button', () => {
         repeats={0}
         />);
     wrapper.find('.closebtn').simulate('click');
-    expect(closeNav).toHaveBeenCalled();
+    expect(handleCloseNav).toHaveBeenCalled();
 });

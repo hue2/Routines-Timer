@@ -9,7 +9,7 @@ type TimeProps = {
     minuteBreak: number,
     secondBreak: number,
     repeats: number,
-    startTimer: () => void,
+    handleStartTimer: () => void,
     isBreak?: boolean,
     handlePause: () => void,
     isPaused?: boolean,
@@ -53,7 +53,7 @@ export default class Clock extends React.Component<TimeProps>  {
                 <br />
                 {
                  !this.props.showOptions &&
-                <TimerButton className="primary-btn" onClick={this.props.startTimer}><i className="fa fa-play"></i> Start</TimerButton>
+                <TimerButton className="primary-btn" onClick={this.props.handleStartTimer}><i className="fa fa-play"></i> Start</TimerButton>
                 }
                 {this.props.showOptions &&
                 <div id="button-groups">
