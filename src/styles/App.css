@@ -1,14 +1,14 @@
 .hidden {
   display: none; }
 
-.inline-block, .timer-btn, .gray-btn, .input-time {
+.inline-block, .timer-btn, .gray-btn, .disabled-btn, .input-time {
   display: inline-block; }
 
 .App {
   margin-top: 15%;
   text-align: center; }
 
-.timer-btn, .gray-btn {
+.timer-btn, .gray-btn, .disabled-btn {
   border-radius: 20px;
   color: white;
   border: none;
@@ -17,7 +17,7 @@
   cursor: pointer;
   outline: none;
   font-size: 20pt; }
-  .timer-btn:active, .gray-btn:active {
+  .timer-btn:active, .gray-btn:active, .disabled-btn:active {
     top: 3px;
     left: 2px; }
 
@@ -54,6 +54,10 @@
 body, html {
   margin: 0;
   padding: 0; }
+
+#background {
+  background: url("lake.jpg");
+  background-repeat: no-repeat; }
 
 #modal {
   width: 100px;
@@ -94,3 +98,8 @@ input:focus {
 
 .fa-gear {
   margin-right: 5px; }
+
+.disabled-btn {
+  color: #c5c8cc;
+  background: #e0e2e5;
+  cursor: not-allowed !important; }

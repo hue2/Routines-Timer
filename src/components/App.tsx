@@ -48,7 +48,7 @@ export default class App extends React.Component<AppProps, AppState> {
   handleSetMinuteBreak = (event: any) => this.setState({ minuteBreak: event.target.value, tempMinuteBreak: event.target.value });
   handleSetSecondsBreak = (event: any) => this.setState({ secondBreak: event.target.value, tempSecondBreak: event.target.value });
   handleSetRepeats = (event: any) => this.setState({ repeats: event.target.value, tempRepeats: event.target.value });
-  
+
   handleTick = () => {
     if (!this.state.isPaused) {
       if (this.state.value === 0) {
@@ -113,15 +113,21 @@ export default class App extends React.Component<AppProps, AppState> {
           this.setState({ value: this.state.tempSecond });
          }
         else if (this.state.tempMin > 0) {
-          this.setState({ tempMin: this.state.tempMin - 1,
-                          value: 60 });
+          this.setState({ 
+                          value: 60,
+                          tempSecond: 60,
+                          tempMin: this.state.tempMin - 1
+                           });
         }
         else if (this.state.tempHour > 0) {
-          this.setState({ tempHour: this.state.tempHour - 1,
-                          tempMin: 60, 
-                          value: 60 });           
+          this.setState({                                 
+                          value: 60,
+                          tempHour: this.state.tempHour - 1,
+                          tempMin: 59,
+                          tempSecond: 60,
+                          });           
         }
-      //no time, no break, check for repeats
+      //if there's no time or no break left, check for repeats
         else if (this.state.tempRepeats > 0 && this.state.tempSecondBreak < 1 && this.state.tempMinuteBreak < 1) {
           this.setState({ 
             tempRepeats: this.state.tempRepeats - 1,
@@ -190,7 +196,7 @@ export default class App extends React.Component<AppProps, AppState> {
           handleSetSecondsBreak={this.handleSetSecondsBreak}
           handleSetRepeats={this.handleSetRepeats}
           />
-          <div id="handleOpenNav" onClick={this.handleOpenNav} ><i className="fa fa-gear"></i> 
+          <div id="handleOpenNav" onClick={this.handleOpenNav} className={this.state.showOptions ? "hidden" : ""}><i className="fa fa-gear"></i> 
           Settings
           </div>
       </div>

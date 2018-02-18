@@ -1,6 +1,7 @@
 import * as React from 'react';
 import '../styles/App.css';
 import '../styles/Options.css';
+// import TimerButton from './Buttons';
 
 type ClockOptionsState = {
     show: boolean,
@@ -74,7 +75,7 @@ export default class ClockOptions extends React.Component<ClockOptionsProps, Clo
                         <input type="text" maxLength={this.state.maxLength} onChange={this.props.handleSetRepeats}/>
                         </div>
                     </div>
-                 
+                    {/* <TimerButton className="gray-btn"  onClick={this.props.}><i className="fa fa-undo"></i> Restart</TimerButton>  */}
                 </div>
             </div>
         );
