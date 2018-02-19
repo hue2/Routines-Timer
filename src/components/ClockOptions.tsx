@@ -1,6 +1,7 @@
 import * as React from 'react';
 import '../styles/App.css';
 import '../styles/Options.css';
+
 // import TimerButton from './Buttons';
 
 type ClockOptionsState = {
@@ -23,7 +24,7 @@ type ClockOptionsProps = {
     seconds: number,
     minuteBreak: number,
     secondBreak: number,
-    repeats: number,
+    repeats: number
 }
 
 const style = {
@@ -53,11 +54,14 @@ export default class ClockOptions extends React.Component<ClockOptionsProps, Clo
                     <div className="option-div">
                         <div className="option-label">Time: </div>
                         <div className="input-time">
-                        <input type="text" placeholder="hh" maxLength={this.state.maxLength} onChange={this.props.handleSetHour}/>
+                        <input type="text" placeholder="hh" maxLength={this.state.maxLength} onChange={this.props.handleSetHour }
+                               value={this.props.hour > 0 ? this.props.hour : ""}/>
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="mm" maxLength={this.state.maxLength}  onChange={this.props.handleSetMinute}/>
+                        <input type="text" placeholder="mm" maxLength={this.state.maxLength}  onChange={this.props.handleSetMinute}
+                               value={this.props.minute > 0 ? this.props.minute: ""}/>
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} onChange={this.props.handleSetSeconds}/>
+                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} onChange={this.props.handleSetSeconds}
+                               value={this.props.seconds > 0 ? this.props.seconds : ""}/>
                         </div>
                     </div>
                     <div className="option-div">

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import TimerButton from './Buttons';
-//import mp3_file from '../styles/Short-ringtone.mp3';
+//@ts-ignore;
+import sound from '../styles/Short-ringtone.mp3';
 
 type TimeProps = {
     value?: number,
@@ -48,7 +49,7 @@ export default class Clock extends React.Component<TimeProps>  {
                 {this.formatNumber(true, false, false)}:{this.formatNumber(false, true, false)}:{this.formatNumber(false, false, true)}</b>
                 </div>
                 <div className={!this.props.isBreak ? "hidden" : "time"} id ="break-countdown">
-                <audio src={'../styles/Short-ringtone.mp3'} controls autoPlay/>
+                {this.props.isBreak && <audio src={sound} autoPlay />}
                 <h3>Break time!</h3>
                 <b>
                 {this.formatNumber(false, true, false)}:{this.formatNumber(false, false, true)}</b>
