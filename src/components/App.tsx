@@ -179,6 +179,7 @@ export default class App extends React.Component<AppProps, AppState> {
           showOptions={this.state.showOptions}
           onReset={this.handleReset}
           onRestart={this.handleRestart}
+          remainingRepeats={this.state.tempRepeats}
           />
           <ClockOptions 
           hour={this.state.hour} 

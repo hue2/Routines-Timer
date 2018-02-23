@@ -17,7 +17,8 @@ type TimeProps = {
     isPaused?: boolean,
     showOptions: boolean,
     onReset: () => void,
-    onRestart: () => void
+    onRestart: () => void,
+    remainingRepeats?: number
 };
 
 export default class Clock extends React.Component<TimeProps>  {
@@ -53,8 +54,8 @@ export default class Clock extends React.Component<TimeProps>  {
                 <h3>Break time!</h3>
                 <b>
                 {this.formatNumber(false, true, false)}:{this.formatNumber(false, false, true)}</b>
+                <p className="small-text"># of repeats left: {this.props.remainingRepeats}</p>
                 </div>
-                <br />
                 {
                  !this.props.showOptions &&
                 <TimerButton className={this.props.seconds < 1 
@@ -62,7 +63,8 @@ export default class Clock extends React.Component<TimeProps>  {
                     && this.props.hour < 1 ? "disabled-btn " : "primary-btn "} onClick={this.props.handleStartTimer} 
                     disabled={this.props.seconds < 1 
                     && this.props.minute < 1
-                    && this.props.hour < 1 ? true : false}>
+                    && this.props.hour < 1 ? true : false}
+                    id="start-btn">
                     <i className="fa fa-play"></i> Start
                 </TimerButton>
                 }
@@ -75,7 +77,7 @@ export default class Clock extends React.Component<TimeProps>  {
                         <TimerButton className="primary-btn" onClick={this.props.handlePause}><i className="fa fa-play"></i> Resume</TimerButton>
                     }
                     {!this.props.isPaused &&
-                        <TimerButton className="orange-btn" onClick={this.props.handlePause}><i className="fa fa-pause"></i> Pause</TimerButton>
+                        <TimerButton className="orange-btn" onClick={this.props.handlePause} id="pause-btn"><i className="fa fa-pause"></i> Pause</TimerButton>
                     }
                     <TimerButton className="gray-btn"  onClick={this.props.onRestart}><i className="fa fa-undo"></i> Restart</TimerButton>            
                 </div>

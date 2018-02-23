@@ -23,9 +23,10 @@ it('clicking start button would start the timer', () => {
     secondBreak={0}
     repeats={0}
     handleStartTimer={handleStartTimer} 
-    handlePause={() => {}} isPaused={false} showOptions={true} onReset={() => {}} onRestart={() => {}}/>);
-  wrapper.find('#handleStartTimer').simulate('click');
-  expect(handleStartTimer).toBeCalled();
+    handlePause={() => {}} isPaused={false} showOptions={false} onReset={() => {}} onRestart={() => {}}/>);
+    expect(wrapper.find('#start-btn').exists()).toBeTruthy();
+    wrapper.find('#start-btn').simulate('click');
+    expect(handleStartTimer).toBeCalled();
 })
 
 it('clicking the pause button would cause pause timer', () => {
@@ -38,6 +39,18 @@ it('clicking the pause button would cause pause timer', () => {
     repeats={0}
     handleStartTimer={() => {}} 
     handlePause={pauseTimer} isPaused={false} showOptions={true} onReset={() => {}} onRestart={() => {}}/>);
-    wrapper.find('#pauseTimer').simulate('click');
+    wrapper.find('#pause-btn').simulate('click');
     expect(pauseTimer).toBeCalled();
+});
+
+it('Option buttons would show when showOption is true', () => {
+  const wrapper = shallow(<Clock hour={0}
+    minute={0}
+    seconds={0}
+    minuteBreak={0}
+    secondBreak={0}
+    repeats={0}
+    handleStartTimer={() => {}} 
+    handlePause={() => {}} isPaused={false} showOptions={true} onReset={() => {}} onRestart={() => {}}/>);
+    expect(wrapper.find('div#button-groups').exists()).toBeTruthy();
 })
