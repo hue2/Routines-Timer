@@ -1,7 +1,7 @@
 import * as React from 'react';
 import TimerButton from './Buttons';
 //@ts-ignore;
-import sound from '../styles/Short-ringtone.mp3';
+import sound from '../styles/sony_beep_beep_alarm.mp3';
 
 type TimeProps = {
     value?: number,
@@ -41,15 +41,13 @@ export default class Clock extends React.Component<TimeProps>  {
 
         return (time != undefined && time.toString().length < 2) ? "0" + time : time;
     }
-
-   
     render() {
         return(
             <div>
-                <div className={this.props.isBreak ? "hidden" : "time"} id="time-countdown"><b>
-                {this.formatNumber(true, false, false)}:{this.formatNumber(false, true, false)}:{this.formatNumber(false, false, true)}</b>
+                <div className={this.props.isBreak ? "hidden" : !this.props.showOptions ? "time" : "time padding-200px"} id="time-countdown">
+                <b>{this.formatNumber(true, false, false)}:{this.formatNumber(false, true, false)}:{this.formatNumber(false, false, true)}</b>
                 </div>
-                <div className={!this.props.isBreak ? "hidden" : "time"} id ="break-countdown">
+                <div className={!this.props.isBreak ? "hidden" : ""} id ="break-countdown">
                 {this.props.isBreak && <audio src={sound} autoPlay />}
                 <h3>Break time!</h3>
                 <b>
@@ -65,21 +63,21 @@ export default class Clock extends React.Component<TimeProps>  {
                     && this.props.minute < 1
                     && this.props.hour < 1 ? true : false}
                     id="start-btn">
-                    <i className="fa fa-play"></i> Start
+                    <i className="fa fa-play"></i>&nbsp; Start
                 </TimerButton>
                 }
 
                 {/* only show options when the timer is started */}
                 {this.props.showOptions &&
                 <div id="button-groups">
-                    <TimerButton className="red-btn"  onClick={this.props.onReset}><i className="fa fa-stop"></i> Reset</TimerButton>
+                    <TimerButton className="red-btn"  onClick={this.props.onReset}><i className="fa fa-stop"></i>&nbsp; Reset</TimerButton>
                     {this.props.isPaused &&
-                        <TimerButton className="primary-btn" onClick={this.props.handlePause}><i className="fa fa-play"></i> Resume</TimerButton>
+                        <TimerButton className="primary-btn" onClick={this.props.handlePause}><i className="fa fa-play"></i>&nbsp; Resume</TimerButton>
                     }
                     {!this.props.isPaused &&
-                        <TimerButton className="orange-btn" onClick={this.props.handlePause} id="pause-btn"><i className="fa fa-pause"></i> Pause</TimerButton>
+                        <TimerButton className="orange-btn" onClick={this.props.handlePause} id="pause-btn"><i className="fa fa-pause"></i>&nbsp; Pause</TimerButton>
                     }
-                    <TimerButton className="gray-btn"  onClick={this.props.onRestart}><i className="fa fa-undo"></i> Restart</TimerButton>            
+                    <TimerButton className="gray-btn"  onClick={this.props.onRestart}><i className="fa fa-undo"></i>&nbsp; Restart</TimerButton>            
                 </div>
                 }
             </div>

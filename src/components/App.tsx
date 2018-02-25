@@ -3,6 +3,7 @@ import '../styles/App.css';
 import '../styles/Options.css';
 import Clock from './Clock';
 import ClockOptions from './ClockOptions';
+import Spinner from './Spinner';
 import 'font-awesome/css/font-awesome.min.css';
 
 
@@ -24,7 +25,8 @@ type AppState = {
   tempSecondBreak: number,
   isPaused: boolean,
   showOptions: boolean,
-  tempRepeats: number
+  tempRepeats: number,
+  isStart: boolean;
 }
 
 type AppProps = {
@@ -36,15 +38,15 @@ export default class App extends React.Component<AppProps, AppState> {
     super(props);
     this.state = { show: false, value: 0, hour: 0, minute: 0, seconds: 0, minuteBreak: 0, secondBreak: 0, repeats: 0, isBreak: false,
                   tempMin: 0, tempHour: 0, tempSecond: 0, tempMinuteBreak: 0, tempSecondBreak: 0,
-                  isPaused: false, showOptions: false, tempRepeats: 0
+                  isPaused: false, showOptions: false, tempRepeats: 0, isStart: false
                   }
   }
  
   handleOpenNav = () => this.setState({ show: true });
   handleCloseNav = () => this.setState({ show: false });
-  handleSetHour = (event: any) => this.setState({ hour: event.target.value, tempHour: event.target.value });
-  handleSetMinute = (event: any) => this.setState({ minute: event.target.value, tempMin: event.target.value });
-  handleSetSeconds = (event: any) => this.setState({ seconds: event.target.value, tempSecond: event.target.value });
+  handleSetHour = (event: any) => this.setState({ hour: event.target.value, tempHour: event.target.value, value: 0 });
+  handleSetMinute = (event: any) => this.setState({ minute: event.target.value, tempMin: event.target.value, value: 0 });
+  handleSetSeconds = (event: any) => this.setState({ seconds: event.target.value, tempSecond: event.target.value, value: 0 });
   handleSetMinuteBreak = (event: any) => this.setState({ minuteBreak: event.target.value, tempMinuteBreak: event.target.value });
   handleSetSecondsBreak = (event: any) => this.setState({ secondBreak: event.target.value, tempSecondBreak: event.target.value });
   handleSetRepeats = (event: any) => this.setState({ repeats: event.target.value, tempRepeats: event.target.value });
@@ -55,7 +57,7 @@ export default class App extends React.Component<AppProps, AppState> {
           this.handleClearTimer();
           this.handleStartTimer();
       } else if (!this.state.isBreak) {
-          this.setState({ value: this.state.value - 1, tempSecond: this.state.value - 1 });       
+          this.setState({ value: this.state.value - 1, tempSecond: this.state.value - 1, isStart: true });       
       }    
       else if (this.state.isBreak) {
           this.setState({ value: this.state.value - 1, tempSecondBreak: this.state.value - 1 });     
@@ -69,11 +71,14 @@ export default class App extends React.Component<AppProps, AppState> {
   }
 
   handlePause = () => {
+      //if it's paused, then start
       if (this.state.isPaused == true) {
         this.handleStartTimer();
       }
+
+      //if it's start, then pause
       else {
-        this.setState({ isPaused: true });
+        this.setState({ isPaused: true, isStart: false });
         this.handleClearTimer();
       }
   }
@@ -82,7 +87,7 @@ export default class App extends React.Component<AppProps, AppState> {
     this.setState({ 
       show: false, value: 0, hour: 0, minute: 0, seconds: 0, minuteBreak: 0, secondBreak: 0, repeats: 0, isBreak: false,
       tempMin: 0, tempHour: 0, tempSecond: 0, tempMinuteBreak: 0, tempSecondBreak: 0,
-      isPaused: false, showOptions: false, tempRepeats: 0
+      isPaused: false, showOptions: false, tempRepeats: 0, isStart: false
     });
     this.handleClearTimer();
   }
@@ -99,7 +104,7 @@ export default class App extends React.Component<AppProps, AppState> {
       isPaused: false,
       isBreak: false,
       showOptions: false,
-      value: this.state.seconds
+      isStart: false
     });    
   }
 
@@ -107,7 +112,7 @@ export default class App extends React.Component<AppProps, AppState> {
         //all the time has been exhausted, start break if there's any
         if (this.state.tempSecond < 1 && this.state.tempMin < 1 && this.state.tempHour < 1) {
             this.handleBreaks();
-            this.setState({ isBreak: true })
+            this.setState({ isBreak: true, isStart: false })
         }
         if (this.state.tempSecond > 0) {
           this.setState({ value: this.state.tempSecond });
@@ -154,6 +159,7 @@ export default class App extends React.Component<AppProps, AppState> {
 
   handleStartTimer = () => { 
       this.handleCloseNav();
+
       //this check will allow minutes and hours to be converted to seconds for countdown
       if (this.state.value < 1) {
           this.handleTimeConvert();
@@ -165,7 +171,8 @@ export default class App extends React.Component<AppProps, AppState> {
   }
   render() {
     return (
-        <div className="App">
+        <div className={this.state.isStart ? "App-start" : "App"}>
+          <Spinner isStart={this.state.isStart} />
           <Clock hour={this.state.tempHour} 
           minute={this.state.tempMin}
           seconds={this.state.tempSecond} 
