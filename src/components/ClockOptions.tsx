@@ -27,16 +27,6 @@ type ClockOptionsProps = {
     repeats: number
 }
 
-const style = {
-    open: {
-        width: "20%"
-    },
-    close: {
-        width: "0%"
-    }
-}
-
-
 export default class ClockOptions extends React.Component<ClockOptionsProps, ClockOptionsState>  {
     constructor(props: ClockOptionsProps) {
         super(props);
@@ -48,7 +38,7 @@ export default class ClockOptions extends React.Component<ClockOptionsProps, Clo
 
     render() {
         return(
-            <div id="myNav" className="overlay" style={this.props.navOpen ? style.open : style.close }>
+            <div id="myNav" className={this.props.navOpen ? "overlay open" : " overlay close"}>
             <a href="javascript:void(0)" className="closebtn" onClick={this.props.navClose}>&times;</a>
                 <div className="overlay-content">
                     <div className="option-div">

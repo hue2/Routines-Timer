@@ -37,6 +37,10 @@ body {
   .timer-btn:active, .disabled-btn:active {
     top: 3px;
     left: 2px; }
+  @media screen and (max-width: 500px) {
+    .timer-btn, .disabled-btn {
+      font-size: 12pt;
+      margin-top: -10%; } }
 
 .primary-btn {
   color: #93DFB8; }
@@ -86,6 +90,9 @@ body, html {
   font-size: 70px;
   margin-top: -100px;
   padding-top: 100px; }
+  @media screen and (max-width: 500px) {
+    .time {
+      font-size: 30pt; } }
 
 .padding-200px {
   padding-bottom: 200px; }
@@ -143,6 +150,12 @@ ul {
   top: -20vh;
   left: -4vw;
   pointer-events: none; }
+  @media screen and (max-width: 1200px) {
+    ul {
+      left: -6vw; } }
+  @media screen and (max-width: 768px) {
+    ul {
+      left: -8vw; } }
 
 li {
   position: absolute;
@@ -164,6 +177,12 @@ li:first-child {
   height: 340px;
   border-width: 5px;
   animation: spinBG 5s infinite linear; }
+  @media screen and (max-width: 500px) {
+    li:first-child {
+      width: 220px;
+      height: 220px;
+      margin-left: -100px;
+      margin-top: -100px; } }
 
 li:nth-child(2) {
   margin-left: -137px;
@@ -175,6 +194,12 @@ li:nth-child(2) {
   border-style: solid;
   box-shadow: 0px 0px 20px rgba(23, 246, 251, 0.5);
   animation: spinBG2 2s infinite linear; }
+  @media screen and (max-width: 500px) {
+    li:nth-child(2) {
+      width: 270px;
+      height: 270px;
+      margin-left: -120px;
+      margin-top: -120px; } }
 
 li:nth-child(3) {
   margin-left: -150px;
@@ -185,6 +210,12 @@ li:nth-child(3) {
   border-width: 2px;
   box-shadow: inset 0px 0px 25px rgba(23, 246, 251, 0.25);
   animation: spinBG 12s infinite linear; }
+  @media screen and (max-width: 500px) {
+    li:nth-child(3) {
+      width: 305px;
+      height: 305px;
+      margin-left: -140px;
+      margin-top: -140px; } }
 
 li:nth-child(4) {
   margin-left: -170px;
@@ -196,6 +227,12 @@ li:nth-child(4) {
   border-style: solid;
   box-shadow: inset 0px 0px 25px #17f6fb;
   animation: spinBG3 8s infinite linear; }
+  @media screen and (max-width: 500px) {
+    li:nth-child(4) {
+      width: 325px;
+      height: 325px;
+      margin-left: -150px;
+      margin-top: -150px; } }
 
 /*-------------------------------------------
  Animations

@@ -7,7 +7,7 @@ type SpinnerProps = {
 export default class Spinner extends React.Component<SpinnerProps> {
     render() {
         return (
-            <div className={this.props.isStart ? "" : "hidden"}>
+            <div className={this.props.isStart ? "col-lg-4" : "hidden"}>
                 <ul>
                     <li></li>
                     <li></li>

@@ -1,24 +1,25 @@
+$small-font: 12pt;
+
 .overlay {
-    /* Height & width depends on how you want to reveal the overlay (see JS below) */    
     height: 100%;
     width: 0;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
-    background-color: rgb(0,0,0); /* Black fallback color */
-    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0, 0.9); 
+    overflow-x: hidden;
+    transition: 0.5s; 
   }
   
   /* Position the content inside the overlay */
   .overlay-content {
     position: relative;
-    top: 25%; /* 25% from the top */
-    width: 100%; /* 100% width */
-    text-align: center; /* Centered text/links */
-    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+    top: 25%;
+    width: 100%;
+    text-align: center; 
+    margin-top: 30px; 
   }
   
   /* The navigation links inside the overlay */
@@ -72,8 +73,41 @@
   .option-div {
     display: inline-block;
     float: left;
+    @media screen and (max-width: 500px) {
+      margin-left: 5px;
+    }
   }
 
   #gear-icon {
     width: 30px;
   }
+
+.open {
+    width: 20%;
+    @media screen and (max-width: 500px) {
+      width: 50%;
+    }
+
+    @media screen and (min-width: 501px) and (max-width: 800px) {
+      width: 30%;
+      font-size: $small-font;
+    }
+}
+
+.close {
+    width: 0%;
+}
+
+input {
+  @media screen and (max-width: 500px) {
+    width: 30px;
+    font-size: $small-font;
+    height: 42px;
+  }
+}
+
+.option-label {
+  @media screen and (max-width: 500px) {
+    font-size: $small-font;
+  }
+}
