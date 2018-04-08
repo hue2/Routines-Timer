@@ -74,13 +74,18 @@
   width: 30px; }
 
 .open {
-  width: 20%; }
-  @media screen and (max-width: 500px) {
+  width: 20%;
+  padding-right: 10px; }
+  @media screen and (max-width: 1100px) {
     .open {
-      width: 50%; } }
+      width: 30%; } }
   @media screen and (min-width: 501px) and (max-width: 800px) {
     .open {
-      width: 30%;
+      width: 40%;
+      font-size: 12pt; } }
+  @media screen and (max-width: 500px) {
+    .open {
+      width: 100%;
       font-size: 12pt; } }
 
 .close {
