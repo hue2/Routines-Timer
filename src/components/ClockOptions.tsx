@@ -45,7 +45,7 @@ export default class ClockOptions extends React.Component<ClockOptionsProps, Clo
                         <div className="option-label">Time: </div>
                         <div className="input-time">
                         <input type="text" placeholder="hh" maxLength={this.state.maxLength} onChange={this.props.handleSetHour }
-                               value={this.props.hour > 0 ? this.props.hour : ""}/>
+                               value={this.props.hour ? this.props.hour : ""}/>
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
                         <input type="text" placeholder="mm" maxLength={this.state.maxLength}  onChange={this.props.handleSetMinute}
                                value={this.props.minute > 0 ? this.props.minute: ""}/>
@@ -57,19 +57,21 @@ export default class ClockOptions extends React.Component<ClockOptionsProps, Clo
                     <div className="option-div">
                         <div className="option-label">Breaks: </div>
                         <div className="input-time">
-                        <input type="text" placeholder="mm" maxLength={this.state.maxLength} onChange={this.props.handleSetMinuteBreak}/>
+                        <input type="text" placeholder="mm" maxLength={this.state.maxLength} onChange={this.props.handleSetMinuteBreak}
+                                value={this.props.minuteBreak ? this.props.minuteBreak : ""}/>
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} onChange={this.props.handleSetSecondsBreak}/>
+                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} onChange={this.props.handleSetSecondsBreak}
+                                value={this.props.secondBreak ? this.props.secondBreak : ""}/>
                         </div>
                     </div>
 
                     <div className="option-div">
                         <div className="option-label">Repeats: </div>
                         <div className="input-time">
-                        <input type="text" maxLength={this.state.maxLength} onChange={this.props.handleSetRepeats}/>
+                        <input type="text" maxLength={this.state.maxLength} onChange={this.props.handleSetRepeats}
+                                value={this.props.repeats ? this.props.repeats : ""}/>
                         </div>
                     </div>
-                    {/* <TimerButton className="gray-btn"  onClick={this.props.}><i className="fa fa-undo"></i> Restart</TimerButton>  */}
                 </div>
             </div>
         );

@@ -42,14 +42,38 @@ export default class App extends React.Component<AppProps, AppState> {
                   }
   }
  
+  handleNonIntInput = (input: any) => {
+    if (!isNaN(input)) {
+      return input;
+    }
+    return 0;
+  }
   handleOpenNav = () => this.setState({ show: true });
   handleCloseNav = () => this.setState({ show: false });
-  handleSetHour = (event: any) => this.setState({ hour: event.target.value, tempHour: event.target.value, value: 0 });
-  handleSetMinute = (event: any) => this.setState({ minute: event.target.value, tempMin: event.target.value, value: 0 });
-  handleSetSeconds = (event: any) => this.setState({ seconds: event.target.value, tempSecond: event.target.value, value: 0 });
-  handleSetMinuteBreak = (event: any) => this.setState({ minuteBreak: event.target.value, tempMinuteBreak: event.target.value });
-  handleSetSecondsBreak = (event: any) => this.setState({ secondBreak: event.target.value, tempSecondBreak: event.target.value });
-  handleSetRepeats = (event: any) => this.setState({ repeats: event.target.value, tempRepeats: event.target.value });
+  handleSetHour = (event: any) => {
+    let hourInput = this.handleNonIntInput(event.target.value);
+    this.setState({ hour: hourInput, tempHour: hourInput, value: 0 });
+  }
+  handleSetMinute = (event: any) => {
+    let minuteInput = this.handleNonIntInput(event.target.value);
+    this.setState({ minute: minuteInput, tempMin: minuteInput, value: 0 });
+  }
+  handleSetSeconds = (event: any) => { 
+    let secondInput = this.handleNonIntInput(event.target.value);
+    this.setState({ seconds: secondInput, tempSecond: secondInput, value: 0 });
+  };
+  handleSetMinuteBreak = (event: any) => { 
+    let minuteBreakInput = this.handleNonIntInput(event.target.value);
+    this.setState({ minuteBreak: minuteBreakInput, tempMinuteBreak: minuteBreakInput });
+  }
+  handleSetSecondsBreak = (event: any) => { 
+    let secondBreakInput = this.handleNonIntInput(event.target.value);
+    this.setState({ secondBreak: secondBreakInput, tempSecondBreak: secondBreakInput });
+  }
+  handleSetRepeats = (event: any) => { 
+    let repeatsInput = this.handleNonIntInput(event.target.value);
+    this.setState({ repeats: repeatsInput, tempRepeats: repeatsInput });
+  };
 
   handleTick = () => {
     if (!this.state.isPaused) {
@@ -211,5 +235,3 @@ export default class App extends React.Component<AppProps, AppState> {
     );
   }
 }
-
-// export default App;
