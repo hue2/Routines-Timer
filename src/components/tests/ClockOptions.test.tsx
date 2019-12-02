@@ -7,12 +7,7 @@ it('nav bar is closed when clicked on the x button', () => {
     const wrapper = shallow( <ClockOptions 
         navOpen={true} 
         navClose={handleCloseNav}
-        handleSetHour={() => {}}
-        handleSetMinute={() => {}}
-        handleSetSeconds={() => {}}
-        handleSetMinuteBreak={() => {}}
-        handleSetSecondsBreak={() => {}}
-        handleSetRepeats={() => {}}
+        handleChange={() => {}}
         hour={0}
         minute={0}
         seconds={0}

@@ -13,12 +13,7 @@ type ClockOptionsState = {
 type ClockOptionsProps = {
     navOpen: boolean,
     navClose: () => void,
-    handleSetHour: (event: any) => void,
-    handleSetMinute: (event: any) => void,
-    handleSetSeconds: (event: any) => void,
-    handleSetMinuteBreak: (event: any) => void,
-    handleSetSecondsBreak: (event: any) => void,
-    handleSetRepeats: (event: any) => void,
+    handleChange: (event: any) => void,
     hour: number,
     minute: number,
     seconds: number,
@@ -44,23 +39,23 @@ export default class ClockOptions extends React.Component<ClockOptionsProps, Clo
                     <div className="option-div">
                         <div className="option-label">Time: </div>
                         <div className="input-time">
-                        <input type="text" placeholder="hh" maxLength={this.state.maxLength} onChange={this.props.handleSetHour }
+                        <input type="text" placeholder="hh" maxLength={this.state.maxLength} id="time" className="hour tempHour" onChange={this.props.handleChange}
                                value={this.props.hour ? this.props.hour : ""}/>
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="mm" maxLength={this.state.maxLength}  onChange={this.props.handleSetMinute}
+                        <input type="text" placeholder="mm" maxLength={this.state.maxLength}  id="time" className="minute tempMinute" onChange={this.props.handleChange}
                                value={this.props.minute > 0 ? this.props.minute: ""}/>
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} onChange={this.props.handleSetSeconds}
+                        <input type="text" placeholder="ss" maxLength={this.state.maxLength}  id="time" className="second tempSecond" onChange={this.props.handleChange}
                                value={this.props.seconds > 0 ? this.props.seconds : ""}/>
                         </div>
                     </div>
                     <div className="option-div">
                         <div className="option-label">Breaks: </div>
                         <div className="input-time">
-                        <input type="text" placeholder="mm" maxLength={this.state.maxLength} onChange={this.props.handleSetMinuteBreak}
+                        <input type="text" placeholder="mm" maxLength={this.state.maxLength} id="timeBreak" className="minuteBreak tempMinuteBreak" onChange={this.props.handleChange}
                                 value={this.props.minuteBreak ? this.props.minuteBreak : ""}/>
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} onChange={this.props.handleSetSecondsBreak}
+                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} id="timeBreak" className="secondBreak tempSecondBreak" onChange={this.props.handleChange}
                                 value={this.props.secondBreak ? this.props.secondBreak : ""}/>
                         </div>
                     </div>
@@ -68,7 +63,7 @@ export default class ClockOptions extends React.Component<ClockOptionsProps, Clo
                     <div className="option-div">
                         <div className="option-label">Repeats: </div>
                         <div className="input-time">
-                        <input type="text" maxLength={this.state.maxLength} onChange={this.props.handleSetRepeats}
+                        <input type="text" maxLength={this.state.maxLength} id="repeats" className="repeat tempRepeat" onChange={this.props.handleChange}
                                 value={this.props.repeats ? this.props.repeats : ""}/>
                         </div>
                     </div>
