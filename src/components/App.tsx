@@ -69,6 +69,7 @@ export default class App extends React.Component<AppProps, AppState> {
     }
     return 0;
   }
+  
   handleOpenNav = () => this.setState({ show: true });
   handleCloseNav = () => this.setState({ show: false });
   
@@ -86,12 +87,11 @@ export default class App extends React.Component<AppProps, AppState> {
           this.handleClearTimer();
           this.handleStartTimer();
       } else if (!this.state.isBreak) {
-          let time = {...this.state.time, tempSecond: this.state.value - 1 };
-          this.setState({ value: this.state.value - 1, time: time, isStart: true });       
+          this.setState({ value: this.state.value - 1, 
+            time: {...this.state.time, tempSecond: this.state.value - 1 }, isStart: true });       
       }    
       else if (this.state.isBreak) {
-          let timeBreak = {...this.state.timeBreak, tempSecondBreak: this.state.value - 1 };
-          this.setState({ value: this.state.value - 1, timeBreak: timeBreak });     
+          this.setState({ value: this.state.value - 1, timeBreak: {...this.state.timeBreak, tempSecondBreak: this.state.value - 1 } });     
       }
     }
   }
