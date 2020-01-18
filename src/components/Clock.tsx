@@ -41,30 +41,30 @@ export default class Clock extends React.Component<TimeProps>  {
 
         return (time != undefined && time.toString().length < 2) ? "0" + time : time;
     }
+
     render() {
         return(
             <div>
                 <div className={this.props.isBreak ? "hidden" : !this.props.showOptions ? "time" : "time padding-200px"} id="time-countdown">
-                <b>{this.formatNumber(true, false, false)}:{this.formatNumber(false, true, false)}:{this.formatNumber(false, false, true)}</b>
+                    <b>{this.formatNumber(true, false, false)}:{this.formatNumber(false, true, false)}:{this.formatNumber(false, false, true)}</b>
                 </div>
                 <div className={!this.props.isBreak ? "hidden" : ""} id ="break-countdown">
-                {this.props.isBreak && <audio src={sound} autoPlay />}
-                <h3>Break time!</h3>
-                <b>
-                {this.formatNumber(false, true, false)}:{this.formatNumber(false, false, true)}</b>
-                <p className="small-text"># of repeats left: {this.props.remainingRepeats}</p>
+                    {this.props.isBreak && <audio src={sound} autoPlay />}
+                    <h3>Break time!</h3>
+                    <b>{this.formatNumber(false, true, false)}:{this.formatNumber(false, false, true)}</b>
+                    <p className="small-text"># of repeats left: {this.props.remainingRepeats}</p>
                 </div>
                 {
                  !this.props.showOptions &&
-                <TimerButton className={this.props.seconds < 1 
-                    && this.props.minute < 1
-                    && this.props.hour < 1 ? "disabled-btn " : "primary-btn "} onClick={this.props.handleStartTimer} 
-                    disabled={this.props.seconds < 1 
-                    && this.props.minute < 1
-                    && this.props.hour < 1 ? true : false}
-                    id="start-btn">
-                    <i className="fa fa-play"></i>&nbsp; Start
-                </TimerButton>
+                    <TimerButton className={this.props.seconds < 1 
+                            && this.props.minute < 1
+                            && this.props.hour < 1 ? "disabled-btn " : "primary-btn "} onClick={this.props.handleStartTimer} 
+                        disabled={this.props.seconds < 1 
+                            && this.props.minute < 1
+                            && this.props.hour < 1 ? true : false}
+                            id="start-btn">
+                        <i className="fa fa-play"></i>&nbsp; Start
+                    </TimerButton>
                 }
 
                 {/* only show options when the timer is started */}

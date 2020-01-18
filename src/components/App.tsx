@@ -69,7 +69,7 @@ export default class App extends React.Component<AppProps, AppState> {
     }
     return 0;
   }
-  
+
   handleOpenNav = () => this.setState({ show: true });
   handleCloseNav = () => this.setState({ show: false });
   
