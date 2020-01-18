@@ -86,13 +86,11 @@ export default class App extends React.Component<AppProps, AppState> {
           this.handleClearTimer();
           this.handleStartTimer();
       } else if (!this.state.isBreak) {
-          let time = {...this.state.time};
-          time.tempSecond = this.state.value - 1;
+          let time = {...this.state.time, tempSecond: this.state.value - 1 };
           this.setState({ value: this.state.value - 1, time: time, isStart: true });       
       }    
       else if (this.state.isBreak) {
-          let timeBreak = {...this.state.timeBreak};
-          timeBreak.tempSecondBreak = this.state.value - 1;
+          let timeBreak = {...this.state.timeBreak, tempSecondBreak: this.state.value - 1 };
           this.setState({ value: this.state.value - 1, timeBreak: timeBreak });     
       }
     }
@@ -104,12 +102,12 @@ export default class App extends React.Component<AppProps, AppState> {
   }
 
   handlePause = () => {
-      //if it's paused, then start
+      //if it's currently paused, then start
       if (this.state.isPaused == true) {
         this.handleStartTimer();
       }
 
-      //if it's start, then pause
+      //if it's currently start, then pause
       else {
         this.setState({ isPaused: true, isStart: false });
         this.handleClearTimer();
@@ -135,76 +133,77 @@ export default class App extends React.Component<AppProps, AppState> {
 
   handleRestart = () => {
     this.handleClearTimer();
-    let time = {...this.state.time};
-    time.tempHour = time.hour;
-    time.tempMinute = time.minute;
-    time.tempSecond = time.second;
-    let timeBreak = {...this.state.timeBreak};
-    timeBreak.tempMinuteBreak = timeBreak.minuteBreak;
-    timeBreak.tempSecondBreak = timeBreak.secondBreak;
-    
-    let repeats = {...this.state.repeats};
-    repeats.tempRepeat = repeats.repeat;
 
     this.setState({
-      time: time,
-      timeBreak: timeBreak,
-      repeats: repeats,
+      time: {...this.state.time, 
+        tempHour: this.state.time.hour,
+        tempMinute: this.state.time.minute,
+        tempSecond: this.state.time.second
+      },
+      timeBreak: {...this.state.timeBreak,
+        tempMinuteBreak: this.state.timeBreak.minuteBreak,
+        tempSecondBreak: this.state.timeBreak.secondBreak
+      },
+      repeats: {...this.state.repeats,
+        tempRepeat: this.state.repeats.repeat
+      },
       isPaused: false,
       isBreak: false,
       showOptions: false,
-      isStart: false
+      isStart: false,
+      value: 0
     });    
   }
 
+  checkConditions = () => ({
+      isBreak: this.state.time.tempSecond < 1 && this.state.time.tempMinute < 1 && this.state.time.tempHour < 1,
+      hasSeconds: this.state.time.tempSecond > 0,
+      hasMinutes: this.state.time.tempMinute > 0,
+      hasHours: this.state.time.tempHour > 0,
+      hasRepeats: this.state.repeats.tempRepeat > 0 && this.state.timeBreak.tempSecondBreak < 1 && this.state.timeBreak.tempMinuteBreak < 1    
+  });
+
+  setTime = (time: ITimeInfo) => {
+    this.setState({ 
+      value: 59,
+      time,
+    });
+  }
+
   handleTimeConvert = () => {
+        let currentStatus = this.checkConditions();
         //all the time has been exhausted, start break if there's any
-        if (this.state.time.tempSecond < 1 && this.state.time.tempMinute < 1 && this.state.time.tempHour < 1) {
-            this.handleBreaks();
-            this.setState({ isBreak: true, isStart: false })
+        if (currentStatus.isBreak) {
+          this.handleBreaks();
+          this.setState({ isBreak: true, isStart: false })
         }
-        if (this.state.time.tempSecond > 0) {
+
+        if (currentStatus.hasSeconds) {
           this.setState({ value: this.state.time.tempSecond });
          }
-        else if (this.state.time.tempMinute > 0) {
-          let time = {...this.state.time};
-          time.tempSecond = 59;
-          time.tempMinute = time.tempMinute - 1;
+        else if (currentStatus.hasMinutes) {
+          this.setTime({...this.state.time, 
+            tempSecond: 59, 
+            tempMinute: this.state.time.tempMinute - 1 });
+        }
+        else if (currentStatus.hasHours) {
+          this.setTime({...this.state.time, 
+            tempMinute: 59, tempSecond: 59, 
+            tempHour: this.state.time.tempHour - 1});
+        }
 
+        //if there's no time or no break left, check for repeats
+        else if (currentStatus.hasRepeats) {
           this.setState({ 
-            value: 59,
-            time: time,
-          });
-        }
-        else if (this.state.time.tempHour > 0) {
-          let time2 = {...this.state.time};
-          time2.tempMinute = 59;
-          time2.tempSecond = 59;
-          time2.tempHour = time2.tempHour - 1;
-          this.setState({                                 
-            value: 59,
-            time: time2,
-          });           
-        }
-    //   //if there's no time or no break left, check for repeats
-        else if (this.state.repeats.tempRepeat > 0 && this.state.timeBreak.tempSecondBreak < 1 && this.state.timeBreak.tempMinuteBreak < 1) {
-          let repeat = {...this.state.repeats};
-          repeat.tempRepeat = repeat.tempRepeat - 1;
-          
-          let time = {...this.state.time};
-          time.tempMinute = time.minute;
-          time.tempSecond = time.second;
-          time.tempHour = time.hour;
-          
-          let timeBreak = {...this.state.timeBreak};
-          timeBreak.tempMinuteBreak = timeBreak.minuteBreak;
-          timeBreak.tempSecondBreak = timeBreak.secondBreak;
-        
-          this.setState({ 
-            repeats: repeat,
-            //tempRepeats: this.state.tempRepeats - 1,
-            time: time,
-            timeBreak: timeBreak,
+            repeats: {...this.state.repeats, 
+              tempRepeat: this.state.repeats.tempRepeat - 1 },
+            time: {...this.state.time, 
+              tempMinute: this.state.time.minute, 
+              tempSecond: this.state.time.second, 
+              tempHour: this.state.time.hour},
+            timeBreak: {...this.state.timeBreak, 
+              tempMinuteBreak: this.state.timeBreak.minuteBreak, 
+              tempSecondBreak: this.state.timeBreak.secondBreak },
             value: this.state.time.second,
             isBreak: false
           });
@@ -216,8 +215,7 @@ export default class App extends React.Component<AppProps, AppState> {
             this.setState({ value: this.state.timeBreak.tempSecondBreak });
         }
         else if (this.state.timeBreak.tempMinuteBreak > 0) {
-          let timeBreak = {...this.state.timeBreak};
-          timeBreak.tempMinuteBreak = timeBreak.tempMinuteBreak - 1;
+          let timeBreak = {...this.state.timeBreak, tempMinuteBreak: this.state.timeBreak.tempMinuteBreak - 1 };
           this.setState({ 
             timeBreak: timeBreak,
             value: 59 
@@ -233,7 +231,6 @@ export default class App extends React.Component<AppProps, AppState> {
           this.handleTimeConvert();
       }
       this.setState({ isPaused: false, showOptions: true })
-      console.log(this.state.time);
 
       if (this.state.time.tempHour > 0 || this.state.time.tempMinute > 0 || this.state.time.second > 0 || 
         this.state.repeats.tempRepeat > 0 || this.state.timeBreak.tempSecondBreak > 0) {
