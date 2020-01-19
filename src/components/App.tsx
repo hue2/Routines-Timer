@@ -232,7 +232,7 @@ export default class App extends React.Component<AppProps, AppState> {
       }
       this.setState({ isPaused: false, showOptions: true })
 
-      if (this.state.time.tempHour > 0 || this.state.time.tempMinute > 0 || this.state.time.second > 0 || 
+      if (this.state.time.tempHour > 0 || this.state.time.tempMinute > 0 || this.state.time.tempSecond > 0 || 
         this.state.repeats.tempRepeat > 0 || this.state.timeBreak.tempSecondBreak > 0) {
         //@ts-ignore
         this.interval = setInterval(this.handleTick, 1000);      
