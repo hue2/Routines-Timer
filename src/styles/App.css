@@ -102,6 +102,9 @@ body, html {
   @media screen and (max-width: 500px) {
     .time {
       font-size: 30pt; } }
+  @media screen and (min-width: 1601px) {
+    .time {
+      margin-right: 30px; } }
 
 .padding-200px {
   padding-bottom: 200px; }
