@@ -71,14 +71,14 @@ export default class Clock extends React.Component<TimeProps>  {
                 {/* only show options when the timer is started */}
                 {this.props.showOptions &&
                 <div id="button-groups">
-                    <TimerButton className="red-btn"  onClick={this.props.onReset}><i className="fa fa-stop"></i>&nbsp; Reset</TimerButton>
+                    <TimerButton className="reset-btn"  onClick={this.props.onReset}><i className="fa fa-times-circle-o"></i>&nbsp; Reset</TimerButton>
                     {this.props.isPaused &&
-                        <TimerButton className="primary-btn" onClick={this.props.handlePause}><i className="fa fa-play"></i>&nbsp; Resume</TimerButton>
+                        <TimerButton className="primary-btn" onClick={this.props.handlePause}><i className="fa fa-play-circle-o"></i>&nbsp; Resume</TimerButton>
                     }
                     {!this.props.isPaused &&
-                        <TimerButton className="orange-btn" onClick={this.props.handlePause} id="pause-btn"><i className="fa fa-pause"></i>&nbsp; Pause</TimerButton>
+                        <TimerButton className="pause-btn" onClick={this.props.handlePause} id="pause-btn"><i className="fa fa-pause-circle-o"></i>&nbsp; Pause</TimerButton>
                     }
-                    <TimerButton className="gray-btn"  onClick={this.props.onRestart}><i className="fa fa-undo"></i>&nbsp; Restart</TimerButton>            
+                    <TimerButton className="restart-btn"  onClick={this.props.onRestart}><i className="fa fa-refresh"></i>&nbsp; Restart</TimerButton>            
                 </div>
                 }
             </div>

@@ -241,37 +241,46 @@ export default class App extends React.Component<AppProps, AppState> {
 
   render() {
     return (
-        <div className={this.state.isStart ? "App-start" : "App"}>
-          <Spinner isStart={this.state.isStart} />
-          <Clock hour={this.state.time.tempHour} 
-            minute={this.state.time.tempMinute}
-            seconds={this.state.time.tempSecond} 
-            minuteBreak={this.state.timeBreak.tempMinuteBreak} 
-            secondBreak={this.state.timeBreak.tempSecondBreak} 
-            repeats={this.state.repeats.repeat} 
-            handleStartTimer={this.handleStartTimer}
-            isBreak={this.state.isBreak}
-            handlePause={this.handlePause}
-            isPaused={this.state.isPaused}
-            showOptions={this.state.showOptions}
-            onReset={this.handleReset}
-            onRestart={this.handleRestart}
-            remainingRepeats={this.state.repeats.tempRepeat}
-          />
-          <ClockOptions 
-            hour={this.state.time.hour} 
-            minute={this.state.time.minute}
-            seconds={this.state.time.second} 
-            minuteBreak={this.state.timeBreak.minuteBreak} 
-            secondBreak={this.state.timeBreak.tempSecondBreak} 
-            repeats={this.state.repeats.repeat} 
-            navOpen={this.state.show} 
-            navClose={this.handleCloseNav}
-            handleChange={this.handleInputChange}
-          />
-          <div id="handleOpenNav" data-testid="settings-btn" onClick={this.handleOpenNav} className={this.state.showOptions ? "hidden" : ""}><i className="fa fa-gear"></i> 
-            Settings
+      <div id="main">
+          <div id="clock-background">
+
           </div>
+          <div className={this.state.isStart ? "App-start" : "App"}>
+            <Spinner isStart={this.state.isStart} />
+            <Clock hour={this.state.time.tempHour} 
+              minute={this.state.time.tempMinute}
+              seconds={this.state.time.tempSecond} 
+              minuteBreak={this.state.timeBreak.tempMinuteBreak} 
+              secondBreak={this.state.timeBreak.tempSecondBreak} 
+              repeats={this.state.repeats.repeat} 
+              handleStartTimer={this.handleStartTimer}
+              isBreak={this.state.isBreak}
+              handlePause={this.handlePause}
+              isPaused={this.state.isPaused}
+              showOptions={this.state.showOptions}
+              onReset={this.handleReset}
+              onRestart={this.handleRestart}
+              remainingRepeats={this.state.repeats.tempRepeat}
+            />
+            <ClockOptions 
+              hour={this.state.time.hour} 
+              minute={this.state.time.minute}
+              seconds={this.state.time.second} 
+              minuteBreak={this.state.timeBreak.minuteBreak} 
+              secondBreak={this.state.timeBreak.tempSecondBreak} 
+              repeats={this.state.repeats.repeat} 
+              navOpen={this.state.show} 
+              navClose={this.handleCloseNav}
+              handleChange={this.handleInputChange}
+            />
+            <div id="handleOpenNav" data-testid="settings-btn" onClick={this.handleOpenNav} className={this.state.showOptions ? "hidden" : ""}><i className="fa fa-gear"></i> 
+              Settings
+            </div>
+        </div>
+        <div id="footer">
+          Image by <a href="https://pixabay.com/users/moinzon-2433302/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1412683" className="footer-link">Michi S</a> from 
+             &nbsp;<a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1412683" className="footer-link">Pixabay</a>
+        </div>
       </div>
     );
   }
