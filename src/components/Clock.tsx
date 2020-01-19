@@ -56,13 +56,14 @@ export default class Clock extends React.Component<TimeProps>  {
                 </div>
                 {
                  !this.props.showOptions &&
-                    <TimerButton className={this.props.seconds < 1 
+                    <TimerButton  className={this.props.seconds < 1 
                             && this.props.minute < 1
                             && this.props.hour < 1 ? "disabled-btn " : "primary-btn "} onClick={this.props.handleStartTimer} 
                         disabled={this.props.seconds < 1 
                             && this.props.minute < 1
                             && this.props.hour < 1 ? true : false}
-                            id="start-btn">
+                            id="start-btn"
+                    >
                         <i className="fa fa-play"></i>&nbsp; Start
                     </TimerButton>
                 }

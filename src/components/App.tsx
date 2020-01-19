@@ -74,11 +74,11 @@ export default class App extends React.Component<AppProps, AppState> {
   handleCloseNav = () => this.setState({ show: false });
   
   handleInputChange = (event: any) => {
-    let currentState = {...this.state[event.target.id]};
+    let currentState = {...this.state[event.target.dataset.state]};
     event.target.classList.forEach((value, key, listObj) => {
       currentState[value] = this.handleNonIntInput(event.target.value);
     });
-    this.setState({ [event.target.id]: currentState } as Pick<AppState, keyof AppState>);
+    this.setState({ [event.target.dataset.state]: currentState } as Pick<AppState, keyof AppState>);
   }
 
   handleTick = () => {
@@ -269,8 +269,8 @@ export default class App extends React.Component<AppProps, AppState> {
             navClose={this.handleCloseNav}
             handleChange={this.handleInputChange}
           />
-          <div id="handleOpenNav" onClick={this.handleOpenNav} className={this.state.showOptions ? "hidden" : ""}><i className="fa fa-gear"></i> 
-          Settings
+          <div id="handleOpenNav" data-testid="settings-btn" onClick={this.handleOpenNav} className={this.state.showOptions ? "hidden" : ""}><i className="fa fa-gear"></i> 
+            Settings
           </div>
       </div>
     );
