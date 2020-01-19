@@ -5,26 +5,7 @@ import Clock from './Clock';
 import ClockOptions from './ClockOptions';
 import Spinner from './Spinner';
 import 'font-awesome/css/font-awesome.min.css';
-import { ITimeInfo, ITimeBreak, ITimeRepeat } from './TimeType';
-
-type AppState = {
-  show: boolean,
-  time: ITimeInfo,
-  timeBreak:  ITimeBreak,
-  repeats: ITimeRepeat,
-  value: number,
-  isBreak?: boolean,
-  //using temp variables to store the values so if there's a repeat, we can start over using the values we already saved
-  tempBreak: ITimeBreak,
-  isPaused: boolean,
-  showOptions: boolean,
-  tempRepeats: number,
-  isStart: boolean;
-}
-
-type AppProps = {
-
-}
+import { ITimeInfo, ITimeBreak, ITimeRepeat, AppProps, AppState } from './TimeType';
 
 const defaultTime: ITimeInfo = {
   hour: 0,
