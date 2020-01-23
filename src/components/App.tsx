@@ -62,18 +62,9 @@ export default class App extends React.Component<AppProps, AppState> {
     this.setState({ [event.target.dataset.state]: currentState } as Pick<AppState, keyof AppState>);
   }
 
-  handleTick = () => {
+  handleStartTick = () => {
     if (!this.state.isPaused) {
-      if (this.state.value === 0) {
-          this.handleClearTimer();
-          this.handleStartTimer();
-      } else if (!this.state.isBreak) {
-          this.setState({ value: this.state.value - 1, 
-            time: {...this.state.time, tempSecond: this.state.value - 1 }, isStart: true });       
-      }    
-      else if (this.state.isBreak) {
-          this.setState({ value: this.state.value - 1, timeBreak: {...this.state.timeBreak, tempSecondBreak: this.state.value - 1 } });     
-      }
+      this.handleTimerTick();
     }
   }
 
@@ -85,6 +76,7 @@ export default class App extends React.Component<AppProps, AppState> {
   handlePause = () => {
       //if it's currently paused, then start
       if (this.state.isPaused == true) {
+        this.handleTimerTick();
         this.handleStartTimer();
       }
 
@@ -93,6 +85,19 @@ export default class App extends React.Component<AppProps, AppState> {
         this.setState({ isPaused: true, isStart: false });
         this.handleClearTimer();
       }
+  }
+
+  handleTimerTick = () => {
+    if (this.state.value === 0) {
+      this.handleClearTimer();
+      this.handleStartTimer();
+    } else if (!this.state.isBreak) {
+        this.setState({ value: this.state.value - 1, 
+          time: {...this.state.time, tempSecond: this.state.value - 1 }, isStart: true });       
+    }    
+    else if (this.state.isBreak) {
+        this.setState({ value: this.state.value - 1, timeBreak: {...this.state.timeBreak, tempSecondBreak: this.state.value - 1 } });     
+    }
   }
 
   handleReset = () => {
@@ -215,8 +220,8 @@ export default class App extends React.Component<AppProps, AppState> {
 
       if (this.state.time.tempHour > 0 || this.state.time.tempMinute > 0 || this.state.time.tempSecond > 0 || 
         this.state.repeats.tempRepeat > 0 || this.state.timeBreak.tempSecondBreak > 0) {
-        //@ts-ignore
-        this.interval = setInterval(this.handleTick, 1000);      
+          //@ts-ignore
+        this.interval = setInterval(this.handleStartTick, 1000);      
       }
   }
 
