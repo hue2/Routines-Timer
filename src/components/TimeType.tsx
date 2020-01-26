@@ -33,6 +33,7 @@ export type AppState = {
     showOptions: boolean,
     tempRepeats: number,
     isStart: boolean;
+    notify: boolean;
   }
   
 export type AppProps = {

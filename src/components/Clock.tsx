@@ -18,24 +18,26 @@ type TimeProps = {
     showOptions: boolean,
     onReset: () => void,
     onRestart: () => void,
-    remainingRepeats?: number
+    remainingRepeats?: number,
+    notify: boolean,
 };
 
 export default class Clock extends React.Component<TimeProps>  {
-    formatNumber(hour: boolean, minute: boolean, second: boolean,) {
-        let time;
-        if (minute) {
-            time = this.props.isBreak ? this.props.minuteBreak : this.props.minute;
-           
-        }
-        else if (second) {
-            time = this.props.isBreak ? this.props.secondBreak : this.props.seconds;
-        }
-        else if (hour) {
-            time = this.props.hour;
-        }
+    formatNumber = () => {
+        let formattedMinute = this.formatTime(this.props.isBreak ? this.props.minuteBreak : this.props.minute);
+        let formattedSecond = this.formatTime(this.props.isBreak ? this.props.secondBreak : this.props.seconds);
 
-        if (time != undefined && time.toString().length < 1) {
+        if (!this.props.isBreak) {
+            let formattedHour = this.formatTime(this.props.hour);
+            return `${formattedHour}:${formattedMinute}:${formattedSecond}`
+        }
+        else {
+            return `${formattedMinute}:${formattedSecond}`;
+        }      
+    }
+
+    formatTime = (time) => {
+        if (time != undefined && time > 0 && time.toString().length < 1) {
             time = "0";
         }
 
@@ -46,12 +48,13 @@ export default class Clock extends React.Component<TimeProps>  {
         return(
             <div>
                 <div className={this.props.isBreak ? "hidden" : !this.props.showOptions ? "time" : "time padding-200px"} id="time-countdown">
-                    <b>{this.formatNumber(true, false, false)}:{this.formatNumber(false, true, false)}:{this.formatNumber(false, false, true)}</b>
+                    <b>{this.formatNumber()}</b>
                 </div>
                 <div className={!this.props.isBreak ? "hidden" : ""} id ="break-countdown">
-                    {this.props.isBreak && <audio src={sound} autoPlay />}
+                    {this.props.notify && <audio src={sound} autoPlay />}
                     <h3>Break time!</h3>
-                    <b>{this.formatNumber(false, true, false)}:{this.formatNumber(false, false, true)}</b>
+                    <b>{this.formatNumber()}</b>
+
                     <p className="small-text"># of repeats left: {this.props.remainingRepeats}</p>
                 </div>
                 {

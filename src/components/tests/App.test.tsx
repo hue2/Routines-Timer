@@ -12,8 +12,8 @@ it('time types are set correctly', () => {
   const wrapper = mount(<App />);
   wrapper.find('#second-input').simulate("change", { target: { dataset: { state : 'time' }, classList: [ 'second', 'tempSecond' ], value: '5' } });
   wrapper.find('#start-btn').at(0).simulate('click');
-  expect(wrapper.state('time').second).toEqual('5');
-  expect(wrapper.state('time').tempSecond).toEqual('5');
+  expect(wrapper.state('time').second).toEqual(5);
+  expect(wrapper.state('time').tempSecond).toEqual(5);
 });
 
 // it('handleTimeConvert is called when time value is bigger than 0', () => {
