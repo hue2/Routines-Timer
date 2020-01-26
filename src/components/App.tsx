@@ -161,14 +161,14 @@ export default class App extends React.Component<AppProps, AppState> {
     var minutes = minAndHourInMinutes % 60;
   
     let timeBreak = {...this.state.timeBreak, 
-      tempMinute: this.handleNumberFormat(minutes), 
+      tempMinuteBreak: this.handleNumberFormat(minutes), 
       tempSecondBreak: this.handleNumberFormat(seconds) }
     this.setState({ value: totalSeconds - 1, timeBreak, isBreak: true, isStart: false });
   }
 
   parseTime = () => {
     let totalSeconds = this.state.value <= 0 && (this.state.time.tempSecond > 1 || 
-      this.state.time.tempMinute > 1 || this.state.time.tempHour > 1) ? 
+      this.state.time.tempMinute >= 1 || this.state.time.tempHour >= 1) ? 
       +this.state.time.tempSecond + (this.state.time.tempMinute * 60) + (this.state.time.tempHour * 3600) : this.state.value;
     let seconds = totalSeconds % 60;
     let minAndHourInMinutes = (totalSeconds - seconds) / 60;
@@ -232,7 +232,7 @@ export default class App extends React.Component<AppProps, AppState> {
       this.setState({ isPaused: false, showOptions: true })
 
       if (this.state.time.tempHour > 0 || this.state.time.tempMinute > 0 || this.state.time.tempSecond > 0 || 
-        this.state.repeats.tempRepeat > 0 || this.state.timeBreak.tempSecondBreak > 0) {
+        this.state.repeats.tempRepeat > 0 || this.state.timeBreak.tempSecondBreak > 0 || this.state.timeBreak.tempMinuteBreak > 0) {    
           //@ts-ignore
         this.interval = setInterval(this.handleStartTick, 1000);      
       }
