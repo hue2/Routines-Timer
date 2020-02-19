@@ -57,9 +57,9 @@ export default class App extends React.Component<AppProps, AppState> {
   
   handleInputChange = (event: any) => {
     let currentState = {...this.state[event.target.dataset.state]};
-    event.target.classList.forEach((value, key, listObj) => {
-      currentState[value] = this.handleNonIntInput(event.target.value);
-    });  
+    for (var i = 0; i < event.target.classList.length; i++) {
+      currentState[event.target.classList[i]] = this.handleNonIntInput(event.target.value);
+    } 
     this.setState({ [event.target.dataset.state]: currentState } as Pick<AppState, keyof AppState>);
   }
 
@@ -274,7 +274,7 @@ export default class App extends React.Component<AppProps, AppState> {
               handleChange={this.handleInputChange}
             />
             <div id="handleOpenNav" data-testid="settings-btn" onClick={this.handleOpenNav} className={this.state.showOptions ? "hidden" : ""}><i className="fa fa-gear"></i> 
-              Settings
+              Adjust Time
             </div>
         </div>
         <div id="footer">
