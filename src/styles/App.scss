@@ -209,8 +209,6 @@ ul{
 
 li{
 	position: absolute;
-	// left: 50%;
-	// top: 50%;
 	display: block;
 	background: transparent;
 	border: 3px solid rgb(255,225,213);
@@ -226,7 +224,6 @@ li{
 }
 
 li:first-child{
-	// margin-left: -130px;
 	margin-top: -130px;
 	z-index: 2;
 	width: 340px;
@@ -241,7 +238,6 @@ li:first-child{
 }
 
 li:nth-child(2){
-	// margin-left: -137px;
 	margin-top: -137px;
 	z-index: 1;
 	width: 370px;
@@ -258,7 +254,6 @@ li:nth-child(2){
 }
 
 li:nth-child(3){
-	// margin-left: -150px;
 	margin-top: -150px;
 	z-index: 1;
 	width: 396px;
@@ -274,7 +269,6 @@ li:nth-child(3){
 }
 
 li:nth-child(4){
-	// margin-left: -170px;
 	margin-top: -170px;
 	z-index: 1;
 	width: 430px;

@@ -1,6 +1,20 @@
 import * as React from 'react';
 import {shallow} from 'enzyme';
 import Clock from '../Clock';
+import * as renderer from 'react-test-renderer';
+
+it('component matches snapshot', () => {
+  const tree = renderer.create(<Clock hour={1}
+    minute={1}
+    seconds={1}
+    minuteBreak={0}
+    secondBreak={0}
+    repeats={0}
+    handleStartTimer={() => {}} 
+    handlePause={() => {}} isPaused={false} showOptions={true} onReset={() => {}} onRestart={() => {}}
+    notify={false} />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
 
 it('time div reflects value from input', () => {
   const wrapper = shallow(<Clock hour={1}

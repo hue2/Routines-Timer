@@ -1,0 +1,697 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component matches snapshot 1`] = `
+<div
+  id="main"
+>
+  <div
+    id="clock-background"
+  />
+  <div
+    className="App"
+  >
+    <div
+      className="hidden"
+    >
+      <ul>
+        <li />
+        <li />
+        <li />
+        <li />
+      </ul>
+    </div>
+    <div>
+      <div
+        className="time"
+        id="time-countdown"
+      >
+        <b>
+          00:00:00
+        </b>
+      </div>
+      <div
+        className="hidden"
+        id="break-countdown"
+      >
+        <h3>
+          Break time!
+        </h3>
+        <b>
+          00:00:00
+        </b>
+        <p
+          className="small-text"
+        >
+          # of repeats left: 
+          0
+        </p>
+      </div>
+      <div
+        title="Click settings below to set time"
+      >
+        <button
+          className="timer-btn disabled-btn "
+          disabled={true}
+          id="start-btn"
+          onClick={[Function]}
+        >
+          <i
+            className="fa fa-play"
+          />
+            Start
+        </button>
+      </div>
+    </div>
+    <div
+      className=" overlay close"
+      id="myNav"
+    >
+      <a
+        className="closebtn"
+        href="javascript:void(0)"
+        onClick={[Function]}
+      >
+        ×
+      </a>
+      <div
+        className="overlay-content"
+      >
+        <div
+          className="option-div"
+        >
+          <div
+            className="option-label"
+          >
+            Time: 
+          </div>
+          <div
+            className="input-time"
+          >
+            <input
+              className="hour tempHour"
+              data-state="time"
+              maxLength={3}
+              onChange={[Function]}
+              placeholder="hh"
+              type="text"
+              value=""
+            />
+            <input
+              className="dot-separator"
+              disabled={true}
+              placeholder=":"
+              type="text"
+            />
+            <input
+              className="minute tempMinute"
+              data-state="time"
+              id="minute-input"
+              maxLength={3}
+              onChange={[Function]}
+              placeholder="mm"
+              type="text"
+              value=""
+            />
+            <input
+              className="dot-separator"
+              disabled={true}
+              placeholder=":"
+              type="text"
+            />
+            <input
+              className="second tempSecond"
+              data-state="time"
+              id="second-input"
+              maxLength={3}
+              onChange={[Function]}
+              placeholder="ss"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="option-div"
+        >
+          <div
+            className="option-label"
+          >
+            Breaks: 
+          </div>
+          <div
+            className="input-time"
+          >
+            <input
+              className="minuteBreak tempMinuteBreak"
+              data-state="timeBreak"
+              maxLength={3}
+              onChange={[Function]}
+              placeholder="mm"
+              type="text"
+              value=""
+            />
+            <input
+              className="dot-separator"
+              disabled={true}
+              placeholder=":"
+              type="text"
+            />
+            <input
+              className="secondBreak tempSecondBreak"
+              data-state="timeBreak"
+              maxLength={3}
+              onChange={[Function]}
+              placeholder="ss"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="option-div"
+        >
+          <div
+            className="option-label"
+          >
+            Repeats: 
+          </div>
+          <div
+            className="input-time"
+          >
+            <input
+              className="repeat tempRepeat"
+              data-state="repeats"
+              maxLength={3}
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className=""
+      data-testid="settings-btn"
+      id="handleOpenNav"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-gear"
+      />
+      Adjust Time
+    </div>
+  </div>
+  <div
+    id="footer"
+  >
+    Image by 
+    <a
+      className="footer-link"
+      href="https://pixabay.com/users/moinzon-2433302/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1412683"
+    >
+      Michi S
+    </a>
+     from  
+    <a
+      className="footer-link"
+      href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1412683"
+    >
+      Pixabay
+    </a>
+    <br />
+    <br />
+    See the project on 
+    <a
+      className="footer-link"
+      href="https://github.com/hue2/Routines-Timer"
+    >
+      Github
+    </a>
+  </div>
+</div>
+`;
+
+exports[`renders correctly 1`] = `
+<div
+  id="main"
+>
+  <div
+    id="clock-background"
+  />
+  <div
+    className="App"
+  >
+    <div
+      className="hidden"
+    >
+      <ul>
+        <li />
+        <li />
+        <li />
+        <li />
+      </ul>
+    </div>
+    <div>
+      <div
+        className="time"
+        id="time-countdown"
+      >
+        <b>
+          00:00:00
+        </b>
+      </div>
+      <div
+        className="hidden"
+        id="break-countdown"
+      >
+        <h3>
+          Break time!
+        </h3>
+        <b>
+          00:00:00
+        </b>
+        <p
+          className="small-text"
+        >
+          # of repeats left: 
+          0
+        </p>
+      </div>
+      <div
+        title="Click settings below to set time"
+      >
+        <button
+          className="timer-btn disabled-btn "
+          disabled={true}
+          id="start-btn"
+          onClick={[Function]}
+        >
+          <i
+            className="fa fa-play"
+          />
+            Start
+        </button>
+      </div>
+    </div>
+    <div
+      className=" overlay close"
+      id="myNav"
+    >
+      <a
+        className="closebtn"
+        href="javascript:void(0)"
+        onClick={[Function]}
+      >
+        ×
+      </a>
+      <div
+        className="overlay-content"
+      >
+        <div
+          className="option-div"
+        >
+          <div
+            className="option-label"
+          >
+            Time: 
+          </div>
+          <div
+            className="input-time"
+          >
+            <input
+              className="hour tempHour"
+              data-state="time"
+              maxLength={3}
+              onChange={[Function]}
+              placeholder="hh"
+              type="text"
+              value=""
+            />
+            <input
+              className="dot-separator"
+              disabled={true}
+              placeholder=":"
+              type="text"
+            />
+            <input
+              className="minute tempMinute"
+              data-state="time"
+              id="minute-input"
+              maxLength={3}
+              onChange={[Function]}
+              placeholder="mm"
+              type="text"
+              value=""
+            />
+            <input
+              className="dot-separator"
+              disabled={true}
+              placeholder=":"
+              type="text"
+            />
+            <input
+              className="second tempSecond"
+              data-state="time"
+              id="second-input"
+              maxLength={3}
+              onChange={[Function]}
+              placeholder="ss"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="option-div"
+        >
+          <div
+            className="option-label"
+          >
+            Breaks: 
+          </div>
+          <div
+            className="input-time"
+          >
+            <input
+              className="minuteBreak tempMinuteBreak"
+              data-state="timeBreak"
+              maxLength={3}
+              onChange={[Function]}
+              placeholder="mm"
+              type="text"
+              value=""
+            />
+            <input
+              className="dot-separator"
+              disabled={true}
+              placeholder=":"
+              type="text"
+            />
+            <input
+              className="secondBreak tempSecondBreak"
+              data-state="timeBreak"
+              maxLength={3}
+              onChange={[Function]}
+              placeholder="ss"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="option-div"
+        >
+          <div
+            className="option-label"
+          >
+            Repeats: 
+          </div>
+          <div
+            className="input-time"
+          >
+            <input
+              className="repeat tempRepeat"
+              data-state="repeats"
+              maxLength={3}
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className=""
+      data-testid="settings-btn"
+      id="handleOpenNav"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-gear"
+      />
+      Adjust Time
+    </div>
+  </div>
+  <div
+    id="footer"
+  >
+    Image by 
+    <a
+      className="footer-link"
+      href="https://pixabay.com/users/moinzon-2433302/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1412683"
+    >
+      Michi S
+    </a>
+     from  
+    <a
+      className="footer-link"
+      href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1412683"
+    >
+      Pixabay
+    </a>
+    <br />
+    <br />
+    See the project on 
+    <a
+      className="footer-link"
+      href="https://github.com/hue2/Routines-Timer"
+    >
+      Github
+    </a>
+  </div>
+</div>
+`;
+
+exports[`renders correctly when there are no items 1`] = `
+<div
+  id="main"
+>
+  <div
+    id="clock-background"
+  />
+  <div
+    className="App"
+  >
+    <div
+      className="hidden"
+    >
+      <ul>
+        <li />
+        <li />
+        <li />
+        <li />
+      </ul>
+    </div>
+    <div>
+      <div
+        className="time"
+        id="time-countdown"
+      >
+        <b>
+          00:00:00
+        </b>
+      </div>
+      <div
+        className="hidden"
+        id="break-countdown"
+      >
+        <h3>
+          Break time!
+        </h3>
+        <b>
+          00:00:00
+        </b>
+        <p
+          className="small-text"
+        >
+          # of repeats left: 
+          0
+        </p>
+      </div>
+      <div
+        title="Click settings below to set time"
+      >
+        <button
+          className="timer-btn disabled-btn "
+          disabled={true}
+          id="start-btn"
+          onClick={[Function]}
+        >
+          <i
+            className="fa fa-play"
+          />
+            Start
+        </button>
+      </div>
+    </div>
+    <div
+      className=" overlay close"
+      id="myNav"
+    >
+      <a
+        className="closebtn"
+        href="javascript:void(0)"
+        onClick={[Function]}
+      >
+        ×
+      </a>
+      <div
+        className="overlay-content"
+      >
+        <div
+          className="option-div"
+        >
+          <div
+            className="option-label"
+          >
+            Time: 
+          </div>
+          <div
+            className="input-time"
+          >
+            <input
+              className="hour tempHour"
+              data-state="time"
+              maxLength={3}
+              onChange={[Function]}
+              placeholder="hh"
+              type="text"
+              value=""
+            />
+            <input
+              className="dot-separator"
+              disabled={true}
+              placeholder=":"
+              type="text"
+            />
+            <input
+              className="minute tempMinute"
+              data-state="time"
+              id="minute-input"
+              maxLength={3}
+              onChange={[Function]}
+              placeholder="mm"
+              type="text"
+              value=""
+            />
+            <input
+              className="dot-separator"
+              disabled={true}
+              placeholder=":"
+              type="text"
+            />
+            <input
+              className="second tempSecond"
+              data-state="time"
+              id="second-input"
+              maxLength={3}
+              onChange={[Function]}
+              placeholder="ss"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="option-div"
+        >
+          <div
+            className="option-label"
+          >
+            Breaks: 
+          </div>
+          <div
+            className="input-time"
+          >
+            <input
+              className="minuteBreak tempMinuteBreak"
+              data-state="timeBreak"
+              maxLength={3}
+              onChange={[Function]}
+              placeholder="mm"
+              type="text"
+              value=""
+            />
+            <input
+              className="dot-separator"
+              disabled={true}
+              placeholder=":"
+              type="text"
+            />
+            <input
+              className="secondBreak tempSecondBreak"
+              data-state="timeBreak"
+              maxLength={3}
+              onChange={[Function]}
+              placeholder="ss"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="option-div"
+        >
+          <div
+            className="option-label"
+          >
+            Repeats: 
+          </div>
+          <div
+            className="input-time"
+          >
+            <input
+              className="repeat tempRepeat"
+              data-state="repeats"
+              maxLength={3}
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className=""
+      data-testid="settings-btn"
+      id="handleOpenNav"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-gear"
+      />
+      Adjust Time
+    </div>
+  </div>
+  <div
+    id="footer"
+  >
+    Image by 
+    <a
+      className="footer-link"
+      href="https://pixabay.com/users/moinzon-2433302/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1412683"
+    >
+      Michi S
+    </a>
+     from  
+    <a
+      className="footer-link"
+      href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1412683"
+    >
+      Pixabay
+    </a>
+    <br />
+    <br />
+    See the project on 
+    <a
+      className="footer-link"
+      href="https://github.com/hue2/Routines-Timer"
+    >
+      Github
+    </a>
+  </div>
+</div>
+`;

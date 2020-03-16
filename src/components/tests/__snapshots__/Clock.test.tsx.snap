@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component matches snapshot 1`] = `
+<div>
+  <div
+    className="time padding-200px"
+    id="time-countdown"
+  >
+    <b>
+      01:01:01
+    </b>
+  </div>
+  <div
+    className="hidden"
+    id="break-countdown"
+  >
+    <h3>
+      Break time!
+    </h3>
+    <b>
+      01:01:01
+    </b>
+    <p
+      className="small-text"
+    >
+      # of repeats left: 
+    </p>
+  </div>
+  <div
+    id="button-groups"
+  >
+    <button
+      className="timer-btn reset-btn"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-times-circle-o"
+      />
+        Reset
+    </button>
+    <button
+      className="timer-btn pause-btn"
+      id="pause-btn"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-pause-circle-o"
+      />
+        Pause
+    </button>
+    <button
+      className="timer-btn restart-btn"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-refresh"
+      />
+        Restart
+    </button>
+  </div>
+</div>
+`;
