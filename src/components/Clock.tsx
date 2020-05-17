@@ -2,25 +2,7 @@ import * as React from 'react';
 import TimerButton from './Buttons';
 //@ts-ignore;
 import sound from '../styles/sony_beep_beep_alarm.mp3';
-
-type TimeProps = {
-    value?: number,
-    hour: number,
-    minute: number,
-    seconds: number,
-    minuteBreak: number,
-    secondBreak: number,
-    repeats: number,
-    handleStartTimer: () => void,
-    isBreak?: boolean,
-    handlePause: () => void,
-    isPaused?: boolean,
-    showOptions: boolean,
-    onReset: () => void,
-    onRestart: () => void,
-    remainingRepeats?: number,
-    notify: boolean,
-};
+import { TimeProps } from './TimeType';
 
 export default class Clock extends React.Component<TimeProps>  {
     formatNumber = () => {

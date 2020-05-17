@@ -7,7 +7,6 @@ export interface ITimeInfo {
     tempSecond: number,
 }
 
-
 export interface ITimeBreak {
     minuteBreak: number,
     secondBreak: number,
@@ -38,4 +37,47 @@ export type AppState = {
   
 export type AppProps = {
   
+}
+
+export type TimeProps = {
+    value?: number,
+    hour: number,
+    minute: number,
+    seconds: number,
+    minuteBreak: number,
+    secondBreak: number,
+    repeats: number,
+    handleStartTimer: () => void,
+    isBreak?: boolean,
+    handlePause: () => void,
+    isPaused?: boolean,
+    showOptions: boolean,
+    onReset: () => void,
+    onRestart: () => void,
+    remainingRepeats?: number,
+    notify: boolean,
+};
+
+
+export type ClockOptionsState = {
+    show: boolean,
+    closeModal?: () => void;
+    maxLength: number,
+}
+
+export type ClockOptionsProps = {
+    navOpen: boolean,
+    navClose: () => void,
+    handleChange: (event: any) => void,
+    hour: number,
+    minute: number,
+    seconds: number,
+    minuteBreak: number,
+    secondBreak: number,
+    repeats: number
+}
+
+
+export type SpinnerProps = {
+    isStart: boolean;
 }

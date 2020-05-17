@@ -1,26 +1,10 @@
 import * as React from 'react';
 import '../styles/App.css';
 import '../styles/Options.css';
+import { ClockOptionsState, ClockOptionsProps } from './TimeType';
 
 // import TimerButton from './Buttons';
 
-type ClockOptionsState = {
-    show: boolean,
-    closeModal?: () => void;
-    maxLength: number,
-}
-
-type ClockOptionsProps = {
-    navOpen: boolean,
-    navClose: () => void,
-    handleChange: (event: any) => void,
-    hour: number,
-    minute: number,
-    seconds: number,
-    minuteBreak: number,
-    secondBreak: number,
-    repeats: number
-}
 
 export default class ClockOptions extends React.Component<ClockOptionsProps, ClockOptionsState>  {
     constructor(props: ClockOptionsProps) {
