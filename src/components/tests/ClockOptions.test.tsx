@@ -8,6 +8,7 @@ it('component matches snapshot', () => {
         navOpen={true} 
         navClose={() => {}}
         handleChange={() => {}}
+        handleTimeChange={() => {}}
         hour={0}
         minute={0}
         seconds={0}
@@ -24,6 +25,7 @@ it('nav bar is closed when clicked on the x button', () => {
         navOpen={true} 
         navClose={handleCloseNav}
         handleChange={() => {}}
+        handleTimeChange={() => {}}
         hour={0}
         minute={0}
         seconds={0}

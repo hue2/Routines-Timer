@@ -27,12 +27,13 @@ exports[`component matches snapshot 1`] = `
         className="input-time"
       >
         <input
-          className="hour tempHour"
+          className="hour"
           data-state="time"
           maxLength={3}
+          min="1"
           onChange={[Function]}
           placeholder="hh"
-          type="text"
+          type="number"
           value=""
         />
         <input
@@ -42,13 +43,14 @@ exports[`component matches snapshot 1`] = `
           type="text"
         />
         <input
-          className="minute tempMinute"
+          className="minute"
           data-state="time"
           id="minute-input"
           maxLength={3}
+          min="1"
           onChange={[Function]}
           placeholder="mm"
-          type="text"
+          type="number"
           value=""
         />
         <input
@@ -58,13 +60,15 @@ exports[`component matches snapshot 1`] = `
           type="text"
         />
         <input
-          className="second tempSecond"
+          className="second"
           data-state="time"
           id="second-input"
+          max="59"
           maxLength={3}
+          min="1"
           onChange={[Function]}
           placeholder="ss"
-          type="text"
+          type="number"
           value=""
         />
       </div>
@@ -81,12 +85,12 @@ exports[`component matches snapshot 1`] = `
         className="input-time"
       >
         <input
-          className="minuteBreak tempMinuteBreak"
+          className="minuteBreak"
           data-state="timeBreak"
           maxLength={3}
           onChange={[Function]}
           placeholder="mm"
-          type="text"
+          type="number"
           value=""
         />
         <input
@@ -96,12 +100,12 @@ exports[`component matches snapshot 1`] = `
           type="text"
         />
         <input
-          className="secondBreak tempSecondBreak"
+          className="secondBreak"
           data-state="timeBreak"
           maxLength={3}
           onChange={[Function]}
           placeholder="ss"
-          type="text"
+          type="number"
           value=""
         />
       </div>
@@ -122,7 +126,7 @@ exports[`component matches snapshot 1`] = `
           data-state="repeats"
           maxLength={3}
           onChange={[Function]}
-          type="text"
+          type="number"
           value=""
         />
       </div>
