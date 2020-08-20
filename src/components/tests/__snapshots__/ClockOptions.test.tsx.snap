@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`component matches snapshot 1`] = `
+exports[`Clock Options Tests component matches snapshot 1`] = `
 <div
   className="overlay open"
   id="myNav"
@@ -34,7 +34,7 @@ exports[`component matches snapshot 1`] = `
           onChange={[Function]}
           placeholder="hh"
           type="number"
-          value=""
+          value={1}
         />
         <input
           className="dot-separator"
@@ -45,13 +45,12 @@ exports[`component matches snapshot 1`] = `
         <input
           className="minute"
           data-state="time"
-          id="minute-input"
           maxLength={3}
           min="1"
           onChange={[Function]}
           placeholder="mm"
           type="number"
-          value=""
+          value={1}
         />
         <input
           className="dot-separator"
@@ -62,14 +61,12 @@ exports[`component matches snapshot 1`] = `
         <input
           className="second"
           data-state="time"
-          id="second-input"
-          max="59"
           maxLength={3}
           min="1"
           onChange={[Function]}
           placeholder="ss"
           type="number"
-          value=""
+          value={1}
         />
       </div>
     </div>
@@ -88,10 +85,11 @@ exports[`component matches snapshot 1`] = `
           className="minuteBreak"
           data-state="timeBreak"
           maxLength={3}
+          min="1"
           onChange={[Function]}
           placeholder="mm"
           type="number"
-          value=""
+          value={1}
         />
         <input
           className="dot-separator"
@@ -103,10 +101,11 @@ exports[`component matches snapshot 1`] = `
           className="secondBreak"
           data-state="timeBreak"
           maxLength={3}
+          min="1"
           onChange={[Function]}
           placeholder="ss"
           type="number"
-          value=""
+          value={1}
         />
       </div>
     </div>
@@ -125,6 +124,7 @@ exports[`component matches snapshot 1`] = `
           className="repeat tempRepeat"
           data-state="repeats"
           maxLength={3}
+          min="1"
           onChange={[Function]}
           type="number"
           value=""

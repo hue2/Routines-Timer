@@ -2,7 +2,7 @@ import * as React from 'react';
 import '../styles/App.css';
 import '../styles/Options.css';
 import { ClockOptionsProps } from './TimeType';
-import Input from './Input';
+import Input from './display_components/Input';
 
 export default function ClockOptions(props: ClockOptionsProps)  {
     const { toggleNav, handleTimeChange, handleChange, 

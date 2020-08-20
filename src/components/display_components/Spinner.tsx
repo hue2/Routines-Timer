@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SpinnerProps } from './TimeType';
+import { SpinnerProps } from '../TimeType';
 
 export default class Spinner extends React.Component<SpinnerProps> {
     render() {

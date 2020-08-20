@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`component matches snapshot 1`] = `
+exports[`Clock tests component matches snapshot 1`] = `
 <div>
   <div
     className="time"
@@ -20,10 +20,15 @@ exports[`component matches snapshot 1`] = `
     <b>
       
     </b>
+  </div>
+  <div
+    className="hidden"
+    id="repeat-txt"
+  >
     <p
       className="small-text"
     >
-      # of repeats left: 
+      Laps remaining: 
       1
     </p>
   </div>

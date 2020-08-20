@@ -1,5 +1,5 @@
 import * as React from 'react';
-import TimerButton from './Buttons';
+import TimerButton from './display_components/Buttons';
 
 export default function StartButton(props : Start) {
     const { onStart, isShow, isDisabled } = props;

@@ -33,11 +33,38 @@ describe('Clock Options Tests', () => {
         expect(tree).toMatchSnapshot();
     });
 
-    it('nav bar is closed when clicked on the x button', () => {
+    it('should close nav bar is when clicked on the x button', () => {
         const wrapper = shallow(<ClockOptions 
             {...props}
         />);
         wrapper.find('.closebtn').simulate('click');
         expect(props.toggleNav).toHaveBeenCalled();
+    });
+
+    it('should call handleTimeChange on time input', () => {
+        const wrapper = shallow(<ClockOptions 
+            {...props}
+        />);
+
+        wrapper.find('.hour').simulate('change', { target: { value: 1 } });    
+        expect(props.handleTimeChange).toHaveBeenCalled();
+    });
+
+    it('should call handleChange on break time input', () => {
+        const wrapper = shallow(<ClockOptions 
+            {...props}
+        />);
+
+        wrapper.find('.minuteBreak').simulate('change', { target: { value: 1 } });    
+        expect(props.handleChange).toHaveBeenCalled();
+    });
+
+    it('should call handleChange on repeat input', () => {
+        const wrapper = shallow(<ClockOptions 
+            {...props}
+        />);
+
+        wrapper.find('.repeat').simulate('change', { target: { value: 1 } });    
+        expect(props.handleChange).toHaveBeenCalled();
     });
 })

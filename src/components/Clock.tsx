@@ -17,7 +17,7 @@ export default function Clock( props: TimeProps)  {
                 <b>{time}</b>
 
             </div>
-            <div className={repeats < 1 ? "hidden" : ""}>
+            <div className={repeats < 1 ? "hidden" : ""} id="repeat-txt">
                 <p className="small-text">Laps remaining: {remainingRepeats}</p>
             </div>
         </div>

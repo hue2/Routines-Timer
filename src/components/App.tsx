@@ -6,7 +6,7 @@ import '../styles/App.css';
 import '../styles/Options.css';
 import Clock from './Clock';
 import ClockOptions from './ClockOptions';
-import Spinner from './Spinner';
+import Spinner from './display_components/Spinner';
 import StartButton from './StartButton';
 import TimerOption from './TimerOptions';
 import { AppState, ITimeBreak, ITimeInfo, ITimeRepeat } from './TimeType';
