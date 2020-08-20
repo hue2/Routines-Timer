@@ -33,12 +33,10 @@ export default class App extends React.Component<AppProps, AppState> {
     this.state = { 
         show: false, 
         value: 0, 
-        breakValue: 0,
         time: {...defaultTime},
         timeBreak: {...defaultBreak},
         repeats: {...defaultRepeat}, 
         isBreak: false,           
-        tempBreak: {...defaultBreak},
         isPaused: false, 
         showOptions: false, 
         tempRepeats: 0, 
@@ -48,10 +46,9 @@ export default class App extends React.Component<AppProps, AppState> {
   }
 
 
-  handleOpenNav = () => this.setState({ show: true });
-  handleCloseNav = () => { 
-    this.setState({ show: false });
-  }
+  toggleNav = (hide : null | boolean = null) => { 
+    this.setState({ show: hide ? false : !this.state.show })  
+  };
   
   handleInputChange = (event: any) => {
     let currentState = handleInput({...this.state[event.target.dataset.state]}, event);
@@ -105,10 +102,8 @@ export default class App extends React.Component<AppProps, AppState> {
         timeBreak: {...defaultBreak},
         repeats: {...defaultRepeat}, 
         isBreak: false,           
-        tempBreak: {...defaultBreak},
         isPaused: false, 
         showOptions: false, 
-        tempRepeats: 0, 
         isStart: false,
         show: false, 
         value: 0,
@@ -122,10 +117,6 @@ export default class App extends React.Component<AppProps, AppState> {
 
     this.setState({
       value: getTotalSeconds(this.state.time),
-      timeBreak: {...this.state.timeBreak,
-        minuteBreak: this.state.timeBreak.minuteBreak,
-        secondBreak: this.state.timeBreak.secondBreak
-      },
       repeats: {...this.state.repeats,
         tempRepeat: this.state.repeats.repeat
       },
@@ -144,15 +135,12 @@ export default class App extends React.Component<AppProps, AppState> {
       hasRepeats: this.state.repeats.tempRepeat > 0 && this.state.value < 1,    
   });
 
-  handleNumberFormat = (time: number) => {
-      return time.toString().length < 2 ? +("0" + time) : +time;
-  }
-
   handleTimeConvert = () => {
         let currentStatus = this.checkConditions();
         //all the time has been exhausted, start break if there's any
         if (currentStatus.isBreak && currentStatus.hasBreaks) {
-            this.setState({ notify: true, 
+            this.setState({ 
+              notify: true, 
               value: getTotalBreakSeconds(this.state.timeBreak),
               isBreak: true,
             });
@@ -160,29 +148,24 @@ export default class App extends React.Component<AppProps, AppState> {
         else {
           this.setState({ isBreak: false });
           if (!currentStatus.hasTime) {
-            this.setState({ isStart: false, notify: currentStatus.hasRepeats ? false : true  });
-          }
-        }
+            this.setState({ 
+              isStart: false, 
+              notify: currentStatus.hasRepeats ? false : true  
+            });
 
-        if (currentStatus.hasTime) {
-          let totalSeconds = getTotalSeconds(this.state.time);
-          this.setState({ value: totalSeconds });
-        }
-
-        //if there's no time or no break left, check for repeats
-        if (currentStatus.hasRepeats && !this.state.isBreak) {
-          this.setState({ 
-            repeats: {...this.state.repeats, 
-              tempRepeat: this.state.repeats.tempRepeat - 1 },
-            value: getTotalSeconds(this.state.time),
-            isBreak: false
-          });
-    }
+            if (currentStatus.hasRepeats) {
+              this.setState({ 
+                repeats: {...this.state.repeats, 
+                  tempRepeat: this.state.repeats.tempRepeat - 1 },
+                value: getTotalSeconds(this.state.time),
+                isBreak: false
+              });
+            }
+          }        
+        }     
   }
 
   handleStartTimer = () => { 
-      this.handleCloseNav();
-
       //this check will allow minutes and hours to be converted to seconds for countdown
       if (this.state.value < 1) {
           this.handleTimeConvert();
@@ -191,7 +174,7 @@ export default class App extends React.Component<AppProps, AppState> {
 
       if (this.state.value > 0) {  
         this.setState({ isStart: true });
-  
+        this.toggleNav(true);
           //@ts-ignore
         this.interval = setInterval(this.handleStartTick, 1000);      
       }
@@ -232,18 +215,15 @@ export default class App extends React.Component<AppProps, AppState> {
             />
               
             <ClockOptions 
-              hour={this.state.time.hour} 
-              minute={this.state.time.minute}
-              seconds={this.state.time.second} 
-              minuteBreak={this.state.timeBreak.minuteBreak} 
-              secondBreak={this.state.timeBreak.secondBreak} 
+              time={this.state.time}             
+              breakTime={this.state.timeBreak} 
               repeats={this.state.repeats.repeat} 
               navOpen={this.state.show} 
-              navClose={this.handleCloseNav}
+              toggleNav={this.toggleNav}           
               handleChange={this.handleInputChange}
               handleTimeChange={this.handleTimeInput}
             />
-            <div id="handleOpenNav" data-testid="settings-btn" onClick={this.handleOpenNav} className={this.state.showOptions ? "hidden" : ""}><i className="fa fa-gear"></i> 
+            <div id="handleOpenNav" data-testid="settings-btn" onClick={() => this.toggleNav()} className={this.state.showOptions ? "hidden" : ""}><i className="fa fa-gear"></i> 
               Adjust Time
             </div>
         </div>
