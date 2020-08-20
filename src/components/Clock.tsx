@@ -4,7 +4,7 @@ import sound from '../styles/sony_beep_beep_alarm.mp3';
 import { TimeProps } from './TimeType';
 
 export default function Clock( props: TimeProps)  {
-    const { isBreak, showOptions, time, remainingRepeats, repeats } = props;
+    const { isBreak, showOptions, time, remainingRepeats, repeats, notify } = props;
 
     return(
         <div>
@@ -12,7 +12,7 @@ export default function Clock( props: TimeProps)  {
                 <b>{time}</b>
             </div>
             <div className={!isBreak ? "hidden" : ""} id ="break-countdown">
-                {/* {notify && <audio src={sound} autoPlay />} */}
+                {notify && <audio src={sound} autoPlay />}
                 <h3>Break time!</h3>
                 <b>{time}</b>
 
