@@ -26,12 +26,8 @@ export type AppState = {
     tempRepeats: number,
     isStart: boolean;
     notify: boolean;
-  }
-  
-export type AppProps = {
-  
 }
-
+  
 export type TimeProps = {
     time: string,
     repeats: number,
