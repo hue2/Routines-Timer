@@ -9,7 +9,7 @@ import ClockOptions from './ClockOptions';
 import Spinner from './Spinner';
 import StartButton from './StartButton';
 import TimerOption from './TimerOptions';
-import { AppProps, AppState, ITimeBreak, ITimeInfo, ITimeRepeat } from './TimeType';
+import { AppState, ITimeBreak, ITimeInfo, ITimeRepeat } from './TimeType';
 
 const defaultTime: ITimeInfo = {
   hour: 0,
@@ -27,24 +27,20 @@ const defaultRepeat: ITimeRepeat = {
   tempRepeat: 0,
 }
 
-export default class App extends React.Component<AppProps, AppState> {
-  constructor(props: AppProps) {
-    super(props);
-    this.state = { 
-        show: false, 
-        value: 0, 
-        time: {...defaultTime},
-        timeBreak: {...defaultBreak},
-        repeats: {...defaultRepeat}, 
-        isBreak: false,           
-        isPaused: false, 
-        showOptions: false, 
-        tempRepeats: 0, 
-        isStart: false,
-        notify: false,
-      }
-  }
-
+export default class App extends React.Component<{}, AppState> {
+  state = { 
+      show: false, 
+      value: 0, 
+      time: {...defaultTime},
+      timeBreak: {...defaultBreak},
+      repeats: {...defaultRepeat}, 
+      isBreak: false,           
+      isPaused: false, 
+      showOptions: false, 
+      tempRepeats: 0, 
+      isStart: false,
+      notify: false,
+    }
 
   toggleNav = (hide : null | boolean = null) => { 
     this.setState({ show: hide ? false : !this.state.show })  
