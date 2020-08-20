@@ -1,74 +1,78 @@
 import * as React from 'react';
 import '../styles/App.css';
 import '../styles/Options.css';
+import { ClockOptionsProps } from './TimeType';
+import Input from './Input';
 
-// import TimerButton from './Buttons';
+export default function ClockOptions(props: ClockOptionsProps)  {
+    const { toggleNav, handleTimeChange, handleChange, 
+        time, navOpen, breakTime, repeats } = props;
 
-type ClockOptionsState = {
-    show: boolean,
-    closeModal?: () => void;
-    maxLength: number,
-}
-
-type ClockOptionsProps = {
-    navOpen: boolean,
-    navClose: () => void,
-    handleChange: (event: any) => void,
-    hour: number,
-    minute: number,
-    seconds: number,
-    minuteBreak: number,
-    secondBreak: number,
-    repeats: number
-}
-
-export default class ClockOptions extends React.Component<ClockOptionsProps, ClockOptionsState>  {
-    constructor(props: ClockOptionsProps) {
-        super(props);
-        this.state = { show: false, maxLength: 3 }
-    }
-
-    handleOpenNav = () => {}
-    setTimer = () => {}
-
-    render() {
-        return(
-            <div id="myNav" className={this.props.navOpen ? "overlay open" : " overlay close"}>
-            <a href="javascript:void(0)" className="closebtn" onClick={this.props.navClose}>&times;</a>
-                <div className="overlay-content">
-                    <div className="option-div">
-                        <div className="option-label">Time: </div>
-                        <div className="input-time">
-                        <input type="text" placeholder="hh" maxLength={this.state.maxLength} data-state="time" className="hour tempHour" onChange={this.props.handleChange}
-                               value={this.props.hour ? this.props.hour : ""}/>
+    return(
+        <div id="myNav" className={navOpen ? "overlay open" : " overlay close"}>
+        <a href="javascript:void(0)" className="closebtn" onClick={toggleNav}>&times;</a>
+            <div className="overlay-content">
+                <div className="option-div">
+                    <div className="option-label">Time: </div>
+                    <div className="input-time">
+                        <Input
+                            className="hour"
+                            onChange={handleTimeChange}
+                            value={time.hour ? time.hour : ""}
+                            placeholder="hh"
+                            data-state="time"
+                        />   
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="mm" maxLength={this.state.maxLength}  id="minute-input" data-state="time" className="minute tempMinute" onChange={this.props.handleChange}
-                               value={this.props.minute > 0 ? this.props.minute: ""}/>
+                        <Input
+                            className="minute"
+                            onChange={handleTimeChange}
+                            value={time.minute > 0 ? time.minute: ""}
+                            placeholder="mm"
+                            data-state="time"
+                        />            
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} id="second-input" data-state="time" className="second tempSecond" onChange={this.props.handleChange}
-                               value={this.props.seconds > 0 ? this.props.seconds : ""}/>
-                        </div>
+                        <Input
+                            className="second"
+                            onChange={handleTimeChange}
+                            value={time.second > 0 ? time.second : ""}
+                            placeholder="ss"
+                            data-state="time"
+                        />                      
                     </div>
-                    <div className="option-div">
-                        <div className="option-label">Breaks: </div>
-                        <div className="input-time">
-                        <input type="text" placeholder="mm" maxLength={this.state.maxLength} data-state="timeBreak" className="minuteBreak tempMinuteBreak" onChange={this.props.handleChange}
-                                value={this.props.minuteBreak ? this.props.minuteBreak : ""}/>
+                </div>
+                <div className="option-div">
+                    <div className="option-label">Breaks: </div>
+                    <div className="input-time">
+                        <Input
+                            className="minuteBreak"
+                            onChange={handleChange}
+                            value={breakTime.minuteBreak ? breakTime.minuteBreak : ""}
+                            placeholder="mm"
+                            data-state="timeBreak"
+                        />     
                         <input className="dot-separator" type="text" placeholder=":" disabled/>
-                        <input type="text" placeholder="ss" maxLength={this.state.maxLength} data-state="timeBreak" className="secondBreak tempSecondBreak" onChange={this.props.handleChange}
-                                value={this.props.secondBreak ? this.props.secondBreak : ""}/>
-                        </div>
-                    </div> 
+                        <Input
+                            className="secondBreak"
+                            onChange={handleChange}
+                            value={breakTime.secondBreak ? breakTime.secondBreak : ""}
+                            placeholder="ss"
+                            data-state="timeBreak"
+                        />                
+                    </div>
+                </div> 
 
-                    <div className="option-div">
-                        <div className="option-label">Repeats: </div>
-                        <div className="input-time">
-                        <input type="text" maxLength={this.state.maxLength} data-state="repeats" className="repeat tempRepeat" onChange={this.props.handleChange}
-                                value={this.props.repeats ? this.props.repeats : ""}/>
-                        </div>
+                <div className="option-div">
+                    <div className="option-label">Repeats: </div>
+                    <div className="input-time">
+                        <Input
+                            className="repeat tempRepeat"
+                            onChange={handleChange}
+                            value={repeats ? repeats : ""}
+                            data-state="repeats"
+                        />                     
                     </div>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );  
 }

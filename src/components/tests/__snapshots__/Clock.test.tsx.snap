@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component matches snapshot 1`] = `
+<div>
+  <div
+    className="time"
+    id="time-countdown"
+  >
+    <b>
+      
+    </b>
+  </div>
+  <div
+    className="hidden"
+    id="break-countdown"
+  >
+    <h3>
+      Break time!
+    </h3>
+    <b>
+      
+    </b>
+    <p
+      className="small-text"
+    >
+      # of repeats left: 
+      1
+    </p>
+  </div>
+</div>
+`;

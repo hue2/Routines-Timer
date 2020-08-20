@@ -1,8 +1,5 @@
 import * as React from 'react';
-
-type SpinnerProps = {
-    isStart: boolean;
-}
+import { SpinnerProps } from './TimeType';
 
 export default class Spinner extends React.Component<SpinnerProps> {
     render() {

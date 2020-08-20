@@ -2,17 +2,11 @@ export interface ITimeInfo {
     hour: number,
     minute: number,
     second: number,
-    tempHour: number,
-    tempMinute: number,
-    tempSecond: number,
 }
-
 
 export interface ITimeBreak {
     minuteBreak: number,
     secondBreak: number,
-    tempMinuteBreak: number,
-    tempSecondBreak: number,
 }
 
 export interface ITimeRepeat {
@@ -27,15 +21,40 @@ export type AppState = {
     repeats: ITimeRepeat,
     value: number,
     isBreak?: boolean,
-    //using temp variables to store the values so if there's a repeat, we can start over using the values we already saved
-    tempBreak: ITimeBreak,
     isPaused: boolean,
     showOptions: boolean,
     tempRepeats: number,
     isStart: boolean;
     notify: boolean;
-  }
+}
   
-export type AppProps = {
-  
+export type TimeProps = {
+    time: string,
+    repeats: number,
+    isBreak?: boolean,
+    showOptions: boolean,
+    remainingRepeats?: number,
+    notify: boolean,
+};
+
+
+export type ClockOptionsState = {
+    show: boolean,
+    closeModal?: () => void;
+    maxLength: number,
+}
+
+export type ClockOptionsProps = {
+    navOpen: boolean,
+    handleChange: (event: any) => void,
+    handleTimeChange: (event: any) => void,
+    toggleNav: () => void,
+    time: ITimeInfo,
+    breakTime: ITimeBreak,
+    repeats: number
+}
+
+
+export type SpinnerProps = {
+    isStart: boolean;
 }
