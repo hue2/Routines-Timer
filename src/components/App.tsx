@@ -6,30 +6,15 @@ import '../styles/App.css';
 import '../styles/Options.css';
 import Clock from './Clock';
 import ClockOptions from './ClockOptions';
+import { defaultBreak, defaultRepeat, defaultTime, defaultUIOptions } from './DefaultStates';
 import Spinner from './display_components/Spinner';
 import StartButton from './StartButton';
 import TimerOption from './TimerOptions';
-import { AppState, ITimeBreak, ITimeInfo, ITimeRepeat } from './TimeType';
-
-const defaultTime: ITimeInfo = {
-  hour: 0,
-  minute: 0,
-  second: 0,
-}
-
-const defaultBreak: ITimeBreak = {
-  minuteBreak: 0,
-  secondBreak: 0,
-}
-
-const defaultRepeat: ITimeRepeat = {
-  repeat: 0,
-  tempRepeat: 0,
-}
+import { AppState } from './TimeType';
 
 export default class App extends React.Component<{}, AppState> {
   state = { 
-      show: false, 
+      showNavbar: false, 
       value: 0, 
       time: {...defaultTime},
       timeBreak: {...defaultBreak},
@@ -43,7 +28,7 @@ export default class App extends React.Component<{}, AppState> {
     }
 
   toggleNav = (hide : null | boolean = null) => { 
-    this.setState({ show: hide ? false : !this.state.show })  
+    this.setState({ showNavbar: hide ? false : !this.state.showNavbar })  
   };
   
   handleInputChange = (event: any) => {
@@ -94,16 +79,11 @@ export default class App extends React.Component<{}, AppState> {
 
   handleReset = () => {
     this.setState({ 
+        ...defaultUIOptions,
         time: {...defaultTime},
         timeBreak: {...defaultBreak},
-        repeats: {...defaultRepeat}, 
-        isBreak: false,           
-        isPaused: false, 
-        showOptions: false, 
-        isStart: false,
-        show: false, 
+        repeats: {...defaultRepeat},     
         value: 0,
-        notify: false,
     });
     this.handleClearTimer();
   }
@@ -116,11 +96,7 @@ export default class App extends React.Component<{}, AppState> {
       repeats: {...this.state.repeats,
         tempRepeat: this.state.repeats.repeat
       },
-      isPaused: false,
-      isBreak: false,
-      showOptions: false,
-      isStart: false,
-      notify: false,
+      ...defaultUIOptions,
     });    
   }
 
@@ -214,7 +190,7 @@ export default class App extends React.Component<{}, AppState> {
               time={this.state.time}             
               breakTime={this.state.timeBreak} 
               repeats={this.state.repeats.repeat} 
-              navOpen={this.state.show} 
+              navOpen={this.state.showNavbar} 
               toggleNav={this.toggleNav}           
               handleChange={this.handleInputChange}
               handleTimeChange={this.handleTimeInput}

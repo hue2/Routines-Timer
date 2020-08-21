@@ -15,7 +15,7 @@ export interface ITimeRepeat {
 }
 
 export type AppState = {
-    show: boolean,
+    showNavbar: boolean,
     time: ITimeInfo,
     timeBreak:  ITimeBreak,
     repeats: ITimeRepeat,
