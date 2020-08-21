@@ -14,7 +14,7 @@ export interface ITimeRepeat {
     tempRepeat: number,
 }
 
-export type AppState = {
+export interface AppState {
     showNavbar: boolean,
     time: ITimeInfo,
     timeBreak:  ITimeBreak,
@@ -27,34 +27,5 @@ export type AppState = {
     isStart: boolean;
     notify: boolean;
 }
-  
-export type TimeProps = {
-    time: string,
-    repeats: number,
-    isBreak?: boolean,
-    showOptions: boolean,
-    remainingRepeats?: number,
-    notify: boolean,
-};
 
 
-export type ClockOptionsState = {
-    show: boolean,
-    closeModal?: () => void;
-    maxLength: number,
-}
-
-export type ClockOptionsProps = {
-    navOpen: boolean,
-    handleChange: (event: any) => void,
-    handleTimeChange: (event: any) => void,
-    toggleNav: () => void,
-    time: ITimeInfo,
-    breakTime: ITimeBreak,
-    repeats: number
-}
-
-
-export type SpinnerProps = {
-    isStart: boolean;
-}

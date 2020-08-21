@@ -14,12 +14,4 @@ describe('App tests', () => {
       const tree = renderer.create(<App />).toJSON();
       expect(tree).toMatchSnapshot();
     });
-
-    it('time types are set correctly', () => {
-      const wrapper = mount(<App />);
-      wrapper.find('#second-input').simulate("change", { target: { dataset: { state : 'time' }, classList: [ 'second', 'tempSecond' ], value: '5' } });
-      wrapper.find('#start-btn').at(0).simulate('click');
-      expect(wrapper.state('time').second).toEqual(5);
-      expect(wrapper.state('time').tempSecond).toEqual(5);
-    });
 })

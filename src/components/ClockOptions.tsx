@@ -1,7 +1,7 @@
 import * as React from 'react';
 import '../styles/App.css';
 import '../styles/Options.css';
-import { ClockOptionsProps } from './TimeType';
+import { ITimeInfo, ITimeBreak } from './TimeType';
 import Input from './display_components/Input';
 
 export default function ClockOptions(props: ClockOptionsProps)  {
@@ -75,4 +75,14 @@ export default function ClockOptions(props: ClockOptionsProps)  {
             </div>
         </div>
     );  
+}
+
+interface ClockOptionsProps {
+    navOpen: boolean,
+    handleChange: (event: any) => void,
+    handleTimeChange: (event: any) => void,
+    toggleNav: () => void,
+    time: ITimeInfo,
+    breakTime: ITimeBreak,
+    repeats: number
 }
