@@ -70,7 +70,7 @@ body {
   }
 }
 
-.pause-btn {
+#pause-btn {
   color: #FF756D;
   &:hover {
     
@@ -79,7 +79,7 @@ body {
   }
 }
 
-.reset-btn {
+#reset-btn {
   color: #F9FFCB;
   &:hover {
     cursor: pointer;
@@ -87,7 +87,7 @@ body {
   }
 }
 
-.restart-btn {
+#restart-btn {
   background: none;
 
   color: #FFCED0;

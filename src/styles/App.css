@@ -51,22 +51,22 @@ body {
     cursor: pointer;
     text-decoration: underline; }
 
-.pause-btn {
+#pause-btn {
   color: #FF756D; }
-  .pause-btn:hover {
+  #pause-btn:hover {
     cursor: pointer;
     text-decoration: underline; }
 
-.reset-btn {
+#reset-btn {
   color: #F9FFCB; }
-  .reset-btn:hover {
+  #reset-btn:hover {
     cursor: pointer;
     text-decoration: underline; }
 
-.restart-btn {
+#restart-btn {
   background: none;
   color: #FFCED0; }
-  .restart-btn:hover {
+  #restart-btn:hover {
     cursor: pointer;
     text-decoration: underline; }
 
