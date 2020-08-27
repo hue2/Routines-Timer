@@ -2,8 +2,6 @@ import 'font-awesome/css/font-awesome.min.css';
 import * as React from 'react';
 import { handleInput } from '../helpers/Helper';
 import { getDisplayBreakTime, getDisplayTime, getTotalBreakSeconds, getTotalSeconds } from '../helpers/TimeHelper';
-import '../styles/App.css';
-import '../styles/Options.css';
 import Clock from './Clock';
 import ClockOptions from './ClockOptions';
 import { defaultBreak, defaultRepeat, defaultTime, defaultUIOptions } from './DefaultStates';
@@ -11,6 +9,7 @@ import Spinner from './display_components/Spinner';
 import StartButton from './StartButton';
 import TimerOption from './TimerOptions';
 import { AppState } from './TimeType';
+import '../styles/Site.css';
 
 export default class App extends React.Component<{}, AppState> {
   state = { 

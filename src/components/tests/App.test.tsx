@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from '../App';
-import { mount } from 'enzyme';
 import * as renderer from 'react-test-renderer';
 
 describe('App tests', () => {

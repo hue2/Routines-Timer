@@ -1,6 +1,4 @@
 import * as React from 'react';
-import '../styles/App.css';
-import '../styles/Options.css';
 import { ITimeInfo, ITimeBreak } from './TimeType';
 import Input from './display_components/Input';
 

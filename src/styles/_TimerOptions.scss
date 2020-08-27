@@ -1,0 +1,38 @@
+.primary-btn {
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+  
+#pause-btn {
+    color: #FF756D;
+    &:hover {
+        
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+#reset-btn {
+    color: #F9FFCB;
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+#restart-btn {
+    background: none;
+
+    color: #FFCED0;
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}

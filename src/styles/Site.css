@@ -1,0 +1,421 @@
+.gradient-background, html {
+  background: #141E30;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #243B55, #141E30);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #243B55, #141E30);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
+
+body {
+  color: white; }
+
+.hidden {
+  display: none; }
+
+.inline-block, .timer-btn, .disabled-btn, .input-time {
+  display: inline-block; }
+
+.App {
+  padding-top: 30vh;
+  text-align: center; }
+
+.App-start {
+  margin-top: 30vh;
+  text-align: center; }
+
+.timer-btn, .disabled-btn {
+  border-radius: 20px;
+  color: white;
+  border: none;
+  padding: 20px 60px;
+  margin: 15px 30px;
+  cursor: pointer;
+  outline: none;
+  font-size: 20pt;
+  background: none; }
+  .timer-btn:active, .disabled-btn:active {
+    top: 3px;
+    left: 2px; }
+  @media screen and (max-width: 500px) {
+    .timer-btn, .disabled-btn {
+      font-size: 12pt;
+      margin-top: -10%; } }
+
+#handleOpenNav {
+  margin-top: 20px;
+  font-size: 17px;
+  font-weight: bold; }
+  #handleOpenNav:hover {
+    cursor: pointer;
+    color: #3493ce; }
+
+body, html {
+  margin: 0;
+  padding: 0; }
+
+#modal {
+  width: 100px;
+  height: 100px;
+  border: 1px; }
+
+.time {
+  font-size: 70px;
+  margin-top: -100px;
+  padding-top: 80px; }
+  @media screen and (max-width: 500px) {
+    .time {
+      font-size: 45px; } }
+
+.padding-200px {
+  padding-bottom: 200px; }
+
+#OptionsModal {
+  margin-left: 20%; }
+
+input {
+  height: 50px;
+  float: left;
+  margin-top: 40px;
+  font-size: 30px;
+  margin-left: 5px;
+  border-bottom: 1px solid white;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  width: 60px;
+  padding-bottom: 0px;
+  text-align: center;
+  background: none;
+  color: white; }
+
+.dot-separator {
+  background: none;
+  border: none;
+  width: 5px;
+  font-weight: 800; }
+
+input:focus {
+  outline-width: 0;
+  caret-color: white; }
+
+.fa-gear {
+  margin-right: 5px; }
+
+.disabled-btn {
+  color: #c5c8cc;
+  cursor: not-allowed !important;
+  display: none; }
+
+.small-text {
+  font-size: 16pt; }
+
+html {
+  width: 100%;
+  height: 100%;
+  background-color: #080808; }
+
+.table {
+  display: flex;
+  justify-content: center; }
+
+#break-countdown {
+  margin-top: -200px;
+  font-size: 70px;
+  margin-top: -100px; }
+
+#clock-background {
+  background: url(../assets/img/sunset-bg.png);
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.footer-link {
+  color: #ffe1d5; }
+
+#footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  margin-bottom: 10px; }
+
+/*-------------------------------------------
+ Animations
+-------------------------------------------*/
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #908ab9, 0 0 40px #908ab9, 0 0 50px #908ab9, 0 0 60px #908ab9, 0 0 70px #908ab9; }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6; } }
+
+ul {
+  pointer-events: none; }
+
+li {
+  position: absolute;
+  display: block;
+  background: transparent;
+  border: 3px solid #ffe1d5;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 500px;
+  transition: all 0.5s ease;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0; }
+
+li:first-child {
+  margin-top: -130px;
+  z-index: 2;
+  width: 340px;
+  height: 340px;
+  border-width: 5px;
+  animation: spinBG 5s infinite linear; }
+  @media screen and (max-width: 500px) {
+    li:first-child {
+      width: 220px;
+      height: 220px;
+      margin-top: -100px; } }
+
+li:nth-child(2) {
+  margin-top: -137px;
+  z-index: 1;
+  width: 370px;
+  height: 370px;
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: 0px 0px 20px rgba(217, 185, 218, 0.5);
+  animation: spinBG2 2s infinite linear; }
+  @media screen and (max-width: 500px) {
+    li:nth-child(2) {
+      width: 270px;
+      height: 270px;
+      margin-top: -120px; } }
+
+li:nth-child(3) {
+  margin-top: -150px;
+  z-index: 1;
+  width: 396px;
+  height: 396px;
+  border-width: 2px;
+  box-shadow: inset 0px 0px 25px rgba(217, 185, 218, 0.5);
+  animation: spinBG 12s infinite linear; }
+  @media screen and (max-width: 500px) {
+    li:nth-child(3) {
+      width: 305px;
+      height: 305px;
+      margin-top: -140px; } }
+
+li:nth-child(4) {
+  margin-top: -170px;
+  z-index: 1;
+  width: 430px;
+  height: 430px;
+  border-width: 5px;
+  border-style: solid;
+  box-shadow: inset 0px 0px 25px #17f6fb;
+  animation: spinBG3 8s infinite linear; }
+  @media screen and (max-width: 500px) {
+    li:nth-child(4) {
+      width: 325px;
+      height: 325px;
+      margin-top: -150px; } }
+
+li:nth-child(5) {
+  border: none;
+  margin-top: -165px;
+  z-index: 1;
+  width: 430px;
+  height: 430px;
+  box-shadow: inset 0px 0px 25px #17f6fb;
+  animation: pulseShadow 2s infinite linear; }
+  @media screen and (max-width: 500px) {
+    li:nth-child(5) {
+      width: 325px;
+      height: 325px;
+      margin-top: -150px; } }
+
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0px 0px 20px rgba(23, 246, 251, 0.75); }
+  50% {
+    text-shadow: 0px 0px 40px rgba(23, 246, 251, 0.5); }
+  100% {
+    text-shadow: 0px 0px 20px rgba(23, 246, 251, 0.75); } }
+
+@keyframes pulseShadow {
+  0% {
+    box-shadow: 0px 0px 30px rgba(23, 246, 251, 0.25); }
+  50% {
+    box-shadow: 0px 0px 30px rgba(23, 246, 251, 0.75); }
+  100% {
+    box-shadow: 0px 0px 30px rgba(23, 246, 251, 0.25); } }
+
+@keyframes spinBG {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes spinBG2 {
+  0% {
+    transform: rotate(360deg);
+    box-shadow: 0px 0px 1px rgba(23, 246, 251, 0.5); }
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 0px 0px 1px rgba(23, 246, 251, 0.5); }
+  100% {
+    transform: rotate(0deg);
+    box-shadow: 0px 0px 1px rgba(23, 246, 251, 0.5); } }
+
+@keyframes spinBG3 {
+  0% {
+    transform: rotate(180deg);
+    box-shadow: 0px 0px 1px rgba(23, 246, 251, 0.1); }
+  50% {
+    transform: rotate(0deg);
+    box-shadow: 0px 0px 5px rgba(23, 246, 251, 0.1); }
+  100% {
+    transform: rotate(-180deg);
+    box-shadow: 0px 0px 1px rgba(23, 246, 251, 0.1); } }
+
+.primary-btn {
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate; }
+  .primary-btn:hover {
+    cursor: pointer;
+    text-decoration: underline; }
+
+#pause-btn {
+  color: #FF756D; }
+  #pause-btn:hover {
+    cursor: pointer;
+    text-decoration: underline; }
+
+#reset-btn {
+  color: #F9FFCB; }
+  #reset-btn:hover {
+    cursor: pointer;
+    text-decoration: underline; }
+
+#restart-btn {
+  background: none;
+  color: #FFCED0; }
+  #restart-btn:hover {
+    cursor: pointer;
+    text-decoration: underline; }
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s; }
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px; }
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  /* Display block instead of inline */
+  transition: 0.3s;
+  /* Transition effects on hover (color) */ }
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1; }
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px; }
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px; }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px; } }
+
+@media screen and (max-height: 1050px) {
+  .input-time {
+    float: left; } }
+
+.option-label {
+  color: white;
+  float: left;
+  margin-top: 70px;
+  font-size: 25px;
+  margin-right: 10px;
+  margin-left: 20px; }
+
+.option-div {
+  display: inline-block;
+  float: left; }
+  @media screen and (max-width: 500px) {
+    .option-div {
+      margin-left: 5px; } }
+
+#gear-icon {
+  width: 30px; }
+
+.open {
+  width: 20%;
+  padding-right: 10px; }
+  @media screen and (max-width: 1100px) {
+    .open {
+      width: 30%; } }
+  @media screen and (min-width: 501px) and (max-width: 800px) {
+    .open {
+      width: 40%;
+      font-size: 12pt; } }
+  @media screen and (max-width: 500px) {
+    .open {
+      width: 100%;
+      font-size: 12pt; } }
+
+.close {
+  width: 0%; }
+
+@media screen and (max-width: 500px) {
+  input {
+    width: 30px;
+    font-size: 12pt;
+    height: 42px; } }
+
+@media screen and (max-width: 500px) {
+  .option-label {
+    font-size: 12pt; } }

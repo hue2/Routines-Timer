@@ -8,6 +8,8 @@ export default function Spinner (props: SpinnerProps) {
                 <li></li>
                 <li></li>
                 <li></li>
+                <li></li>
+
             </ul>
         </div>
     )   

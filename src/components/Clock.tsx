@@ -1,6 +1,6 @@
 import * as React from 'react';
 //@ts-ignore;
-import sound from '../styles/sony_beep_beep_alarm.mp3';
+import sound from '../assets/sound/sony_beep_beep_alarm.mp3';
 
 export default function Clock( props: TimeProps)  {
     const { isBreak, showOptions, time, remainingRepeats, repeats, notify } = props;
