@@ -1,7 +1,7 @@
 import * as React from 'react';
 import TimerButton from './display_components/Buttons';
 
-export default function TimerOptions(props : TimerOptions) {
+export default function ControlPanel(props : ControlOptions) {
     const { onReset, onPause, isPaused, onRestart, isShow } = props;
     return (
         <div id="button-groups" className={isShow ? "" : "hidden"}>
@@ -19,7 +19,7 @@ export default function TimerOptions(props : TimerOptions) {
     )
 }
 
-interface TimerOptions {
+interface ControlOptions {
     onReset: () => void,
     isPaused: boolean,
     onPause: () => void,

@@ -1,14 +1,15 @@
-import 'font-awesome/css/font-awesome.min.css';
 import * as React from 'react';
 import { handleInput } from '../helpers/Helper';
-import { getDisplayBreakTime, getDisplayTime, getTotalBreakSeconds, getTotalSeconds } from '../helpers/TimeHelper';
 import Clock from './Clock';
 import ClockOptions from './ClockOptions';
-import { defaultBreak, defaultRepeat, defaultTime, defaultUIOptions } from './DefaultStates';
 import Spinner from './display_components/Spinner';
+import Footer from './display_components/Footer';
 import StartButton from './StartButton';
-import TimerOption from './TimerOptions';
+import ControlPanel from './ControlPanel';
 import { AppState } from './TimeType';
+import { getDisplayBreakTime, getDisplayTime, getTotalBreakSeconds, getTotalSeconds } from '../helpers/TimeHelper';
+import { defaultBreak, defaultRepeat, defaultTime, defaultUIOptions } from './DefaultStates';
+
 import '../styles/Site.css';
 
 export default class App extends React.Component<{}, AppState> {
@@ -53,13 +54,11 @@ export default class App extends React.Component<{}, AppState> {
   }
 
   handlePause = () => {
-      //if it's currently paused, then start
       if (this.state.isPaused == true) {
         this.handleTimerTick();
         this.handleStartTimer();
       }
 
-      //if it's currently start, then pause
       else {
         this.setState({ isPaused: true, isStart: false });
         this.handleClearTimer();
@@ -137,7 +136,6 @@ export default class App extends React.Component<{}, AppState> {
   }
 
   handleStartTimer = () => { 
-      //this check will allow minutes and hours to be converted to seconds for countdown
       if (this.state.value < 1) {
           this.handleTimeConvert();
       }
@@ -177,7 +175,7 @@ export default class App extends React.Component<{}, AppState> {
               isDisabled={isStartDisabled}
             />
 
-            <TimerOption
+            <ControlPanel
               isShow={this.state.showOptions}
               onReset={this.handleReset}
               onRestart={this.handleRestart}
@@ -194,17 +192,11 @@ export default class App extends React.Component<{}, AppState> {
               handleChange={this.handleInputChange}
               handleTimeChange={this.handleTimeInput}
             />
-            <div id="handleOpenNav" data-testid="settings-btn" onClick={() => this.toggleNav()} className={this.state.showOptions ? "hidden" : ""}><i className="fa fa-gear"></i> 
+            <div id="settings-btn" data-testid="settings-btn" onClick={() => this.toggleNav()} className={this.state.showOptions ? "hidden" : ""}><i className="fa fa-gear"></i> 
               Adjust Time
             </div>
         </div>
-        <div id="footer">
-          Image by <a href="https://pixabay.com/users/moinzon-2433302/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1412683" className="footer-link">Michi S</a> from 
-             &nbsp;<a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1412683" className="footer-link">Pixabay</a>
-          <br />
-          <br />
-          See the project on <a href="https://github.com/hue2/Routines-Timer" className="footer-link">Github</a>
-        </div>
+       <Footer />
       </div>
     );
   }

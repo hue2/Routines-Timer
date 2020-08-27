@@ -18,6 +18,7 @@ exports[`App tests component matches snapshot 1`] = `
         <li />
         <li />
         <li />
+        <li />
       </ul>
     </div>
     <div>
@@ -131,6 +132,7 @@ exports[`App tests component matches snapshot 1`] = `
             <input
               className="hour"
               data-state="time"
+              id="hour"
               maxLength={3}
               min="1"
               onChange={[Function]}
@@ -138,12 +140,11 @@ exports[`App tests component matches snapshot 1`] = `
               type="number"
               value=""
             />
-            <input
+            <label
               className="dot-separator"
-              disabled={true}
-              placeholder=":"
-              type="text"
-            />
+            >
+              :
+            </label>
             <input
               className="minute"
               data-state="time"
@@ -154,12 +155,11 @@ exports[`App tests component matches snapshot 1`] = `
               type="number"
               value=""
             />
-            <input
+            <label
               className="dot-separator"
-              disabled={true}
-              placeholder=":"
-              type="text"
-            />
+            >
+              :
+            </label>
             <input
               className="second"
               data-state="time"
@@ -193,12 +193,11 @@ exports[`App tests component matches snapshot 1`] = `
               type="number"
               value=""
             />
-            <input
+            <label
               className="dot-separator"
-              disabled={true}
-              placeholder=":"
-              type="text"
-            />
+            >
+              :
+            </label>
             <input
               className="secondBreak"
               data-state="timeBreak"
@@ -238,7 +237,7 @@ exports[`App tests component matches snapshot 1`] = `
     <div
       className=""
       data-testid="settings-btn"
-      id="handleOpenNav"
+      id="settings-btn"
       onClick={[Function]}
     >
       <i

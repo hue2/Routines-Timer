@@ -12,15 +12,16 @@ export default function ClockOptions(props: ClockOptionsProps)  {
             <div className="overlay-content">
                 <div className="option-div">
                     <div className="option-label">Time: </div>
-                    <div className="input-time">
+                    <div className="input-time" >
                         <Input
                             className="hour"
+                            id="hour"
                             onChange={handleTimeChange}
                             value={time.hour ? time.hour : ""}
                             placeholder="hh"
                             data-state="time"
                         />   
-                        <input className="dot-separator" type="text" placeholder=":" disabled/>
+                        <label className="dot-separator">:</label>
                         <Input
                             className="minute"
                             onChange={handleTimeChange}
@@ -28,7 +29,7 @@ export default function ClockOptions(props: ClockOptionsProps)  {
                             placeholder="mm"
                             data-state="time"
                         />            
-                        <input className="dot-separator" type="text" placeholder=":" disabled/>
+                        <label className="dot-separator">:</label>
                         <Input
                             className="second"
                             onChange={handleTimeChange}
@@ -48,7 +49,7 @@ export default function ClockOptions(props: ClockOptionsProps)  {
                             placeholder="mm"
                             data-state="timeBreak"
                         />     
-                        <input className="dot-separator" type="text" placeholder=":" disabled/>
+                        <label className="dot-separator">:</label>
                         <Input
                             className="secondBreak"
                             onChange={handleChange}
