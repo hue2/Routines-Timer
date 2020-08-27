@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import TimerOptions from '../TimerOptions';
+import ControlPanel from '../ControlPanel';
 
 describe('TimerOptions tests', () => {
     let props, wrapper;
@@ -15,7 +15,7 @@ describe('TimerOptions tests', () => {
         };
 
         wrapper = shallow(
-            <TimerOptions 
+            <ControlPanel 
                 {...props}
             />
         );
@@ -35,7 +35,7 @@ describe('TimerOptions tests', () => {
 
     it('should not show pause button when isPaused is true', () => {
         wrapper = shallow(
-            <TimerOptions
+            <ControlPanel
                 {...props}
                 isPaused={true}
             />
@@ -49,7 +49,7 @@ describe('TimerOptions tests', () => {
 
     it('should show resume button when isPaused is true', () => {
         wrapper = shallow(
-            <TimerOptions
+            <ControlPanel
                 {...props}
                 isPaused={true}
             />
@@ -64,7 +64,7 @@ describe('TimerOptions tests', () => {
 
     it('should call onPause when resume is clicked', () => {
         wrapper = shallow(
-            <TimerOptions
+            <ControlPanel
                 {...props}
                 isPaused={true}
             />

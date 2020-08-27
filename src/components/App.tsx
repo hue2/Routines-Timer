@@ -5,7 +5,7 @@ import ClockOptions from './ClockOptions';
 import Spinner from './display_components/Spinner';
 import Footer from './display_components/Footer';
 import StartButton from './StartButton';
-import TimerOption from './TimerOptions';
+import ControlPanel from './ControlPanel';
 import { AppState } from './TimeType';
 import { getDisplayBreakTime, getDisplayTime, getTotalBreakSeconds, getTotalSeconds } from '../helpers/TimeHelper';
 import { defaultBreak, defaultRepeat, defaultTime, defaultUIOptions } from './DefaultStates';
@@ -175,7 +175,7 @@ export default class App extends React.Component<{}, AppState> {
               isDisabled={isStartDisabled}
             />
 
-            <TimerOption
+            <ControlPanel
               isShow={this.state.showOptions}
               onReset={this.handleReset}
               onRestart={this.handleRestart}
