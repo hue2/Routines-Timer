@@ -1,10 +1,13 @@
 export function handleInput(state: any, event: any) {
-    let currentState = {...state};
+  const re = /^[0-9\b]+$/;
+  
+  if (event.target.value === '' || re.test(event.target.value)) {
     for (var i = 0; i < event.target.classList.length; i++) {
-      currentState[event.target.classList[i]] = +(event.target.value);
+      state[event.target.classList[i]] = +(event.target.value);
     } 
-
-    return currentState;
+  }
+  
+  return state;
 }
 
  
