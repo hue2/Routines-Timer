@@ -3,6 +3,7 @@ import { handleInput } from '../helpers/Helper';
 import Clock from './Clock';
 import ClockOptions from './ClockOptions';
 import Spinner from './display_components/Spinner';
+import Footer from './display_components/Footer';
 import StartButton from './StartButton';
 import TimerOption from './TimerOptions';
 import { AppState } from './TimeType';
@@ -10,7 +11,6 @@ import { getDisplayBreakTime, getDisplayTime, getTotalBreakSeconds, getTotalSeco
 import { defaultBreak, defaultRepeat, defaultTime, defaultUIOptions } from './DefaultStates';
 
 import '../styles/Site.css';
-import Footer from './display_components/Footer';
 
 export default class App extends React.Component<{}, AppState> {
   state = { 
@@ -54,13 +54,11 @@ export default class App extends React.Component<{}, AppState> {
   }
 
   handlePause = () => {
-      //if it's currently paused, then start
       if (this.state.isPaused == true) {
         this.handleTimerTick();
         this.handleStartTimer();
       }
 
-      //if it's currently start, then pause
       else {
         this.setState({ isPaused: true, isStart: false });
         this.handleClearTimer();
@@ -138,7 +136,6 @@ export default class App extends React.Component<{}, AppState> {
   }
 
   handleStartTimer = () => { 
-      //this check will allow minutes and hours to be converted to seconds for countdown
       if (this.state.value < 1) {
           this.handleTimeConvert();
       }

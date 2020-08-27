@@ -9,5 +9,5 @@ export default function Footer() {
             <br />
             See the project on <a href="https://github.com/hue2/Routines-Timer" className="footer-link">Github</a>
         </div>
-    )
+    );
 }
