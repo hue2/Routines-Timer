@@ -19,4 +19,4 @@ All notable changes to this project will be documented in this file
 ## 08-27-2020
 ### Added
 - Volume adjustment
-- UI improvement
+- UI improvements
