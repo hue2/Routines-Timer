@@ -11,6 +11,36 @@ exports[`App tests component matches snapshot 1`] = `
     className="App"
   >
     <div
+      id="volume-wrapper"
+    >
+      <audio
+        autoPlay={true}
+        id="player"
+        src=""
+      />
+      <div>
+        <div
+          id="volume-icon"
+          onClick={[Function]}
+        >
+          <i
+            className="fa fa-volume-up"
+          />
+        </div>
+        <input
+          disabled={false}
+          id="volume-slider"
+          max="1"
+          min="0"
+          name="volume"
+          onChange={[Function]}
+          step={0.1}
+          type="range"
+          value={0.5}
+        />
+      </div>
+    </div>
+    <div
       className="hidden"
     >
       <ul>

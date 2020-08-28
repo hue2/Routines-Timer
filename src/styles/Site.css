@@ -340,7 +340,7 @@ li:nth-child(5) {
     top: 15px;
     right: 35px; } }
 
-input {
+.input-time input {
   height: 50px;
   float: left;
   margin-top: 40px;
@@ -354,11 +354,11 @@ input {
   text-align: center;
   background: none;
   color: white; }
-  input:focus {
+  .input-time input:focus {
     outline-width: 0;
     caret-color: white; }
   @media screen and (max-height: 1050px) {
-    input .input-time {
+    .input-time input .input-time {
       float: left; } }
 
 .option-label {
@@ -413,3 +413,24 @@ input {
   border-left: none;
   border-right: none;
   border-top: none; }
+
+#volume-wrapper {
+  position: absolute;
+  top: 2vw;
+  right: 2vw; }
+  #volume-wrapper:hover {
+    cursor: pointer; }
+  #volume-wrapper #volume-slider {
+    max-height: 60px;
+    margin-left: 8px;
+    margin-top: 5px;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0.5;
+    writing-mode: bt-lr;
+    /* IE */
+    -webkit-appearance: slider-vertical;
+    /* WebKit */ }
+  #volume-wrapper #volume-icon {
+    margin-left: 2px;
+    opacity: 0.7; }

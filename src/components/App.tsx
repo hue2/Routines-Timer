@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { handleInput } from '../helpers/Helper';
+import { handleInput, getCurrentClockStatus } from '../helpers/Helper';
 import Clock from './Clock';
 import ClockOptions from './ClockOptions';
 import Spinner from './display_components/Spinner';
@@ -11,6 +11,7 @@ import { getDisplayBreakTime, getDisplayTime, getTotalBreakSeconds, getTotalSeco
 import { defaultBreak, defaultRepeat, defaultTime, defaultUIOptions } from './DefaultStates';
 
 import '../styles/Site.css';
+import Volume from './Volume';
 
 export default class App extends React.Component<{}, AppState> {
   state = { 
@@ -22,14 +23,24 @@ export default class App extends React.Component<{}, AppState> {
       isBreak: false,           
       isPaused: false, 
       showOptions: false, 
-      tempRepeats: 0, 
       isStart: false,
-      notify: false,
+      notify: false,    
+      tempRepeat: 0,
+      isMuted: false,
+      volume: 0.5
     }
 
   toggleNav = (hide : null | boolean = null) => { 
-    this.setState({ showNavbar: hide ? false : !this.state.showNavbar })  
+    this.setState({ showNavbar: hide ? false : !this.state.showNavbar });  
   };
+
+  toggleVolume = () => { 
+    this.setState({ isMuted: !this.state.isMuted });
+  };
+
+  setVolume = (event : any) => {
+    this.setState({ volume: event.target.value });
+  }
   
   handleInputChange = (event: any) => {
     let currentState = handleInput({...this.state[event.target.dataset.state]}, event);
@@ -98,15 +109,9 @@ export default class App extends React.Component<{}, AppState> {
     });    
   }
 
-  checkConditions = () => ({
-      isBreak: this.state.value < 1 && !this.state.isBreak, 
-      hasTime: this.state.value > 0,
-      hasBreaks: this.state.timeBreak.secondBreak > 0 || this.state.timeBreak.minuteBreak > 0,
-      hasRepeats: this.state.repeats.tempRepeat > 0 && this.state.value < 1,    
-  });
-
   handleTimeConvert = () => {
-        let currentStatus = this.checkConditions();
+        let currentStatus = getCurrentClockStatus(this.state);
+
         //all the time has been exhausted, start break if there's any
         if (currentStatus.isBreak && currentStatus.hasBreaks) {
             this.setState({ 
@@ -153,18 +158,27 @@ export default class App extends React.Component<{}, AppState> {
     const { second, minute, hour } = this.state.time;
     const isStartDisabled = second < 1 && minute < 1 && hour < 1;
     const time = this.state.isBreak ? getDisplayBreakTime(this.state.value) : getDisplayTime(this.state.value);
+    const shouldNotify = this.state.notify && !this.state.isMuted;
 
     return (
       <div id="main">
           <div id="clock-background">
           </div>
           <div className={this.state.isStart ? "App-start" : "App"}>
+            <Volume 
+              toggleVolume={this.toggleVolume} 
+              isMuted={this.state.isMuted} 
+              notify={shouldNotify}
+              volume={this.state.volume}
+              setVolume={this.setVolume}
+            />
+
             <Spinner isStart={this.state.isStart && !this.state.isBreak} />
+
             <Clock 
               time={time}
               isBreak={this.state.isBreak}
               repeats={this.state.repeats.repeat}
-              notify={this.state.notify}
               remainingRepeats={this.state.repeats.tempRepeat}
               showOptions={this.state.showOptions}
             />
