@@ -13,7 +13,6 @@ describe('Clock tests', () => {
       isBreak: false,
       showOptions: false, 
       remainingRepeats: 1,
-      notify: false
     }
 
     wrapper = shallow(
@@ -34,7 +33,7 @@ describe('Clock tests', () => {
       isBreak={false}
       showOptions={false}
       remainingRepeats={1}
-      notify={false} />).toJSON();
+      />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

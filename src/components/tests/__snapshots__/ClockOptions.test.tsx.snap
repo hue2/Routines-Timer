@@ -29,6 +29,7 @@ exports[`Clock Options Tests component matches snapshot 1`] = `
         <input
           className="hour"
           data-state="time"
+          id="hour"
           maxLength={3}
           min="1"
           onChange={[Function]}
@@ -36,12 +37,11 @@ exports[`Clock Options Tests component matches snapshot 1`] = `
           type="number"
           value={1}
         />
-        <input
+        <label
           className="dot-separator"
-          disabled={true}
-          placeholder=":"
-          type="text"
-        />
+        >
+          :
+        </label>
         <input
           className="minute"
           data-state="time"
@@ -52,12 +52,11 @@ exports[`Clock Options Tests component matches snapshot 1`] = `
           type="number"
           value={1}
         />
-        <input
+        <label
           className="dot-separator"
-          disabled={true}
-          placeholder=":"
-          type="text"
-        />
+        >
+          :
+        </label>
         <input
           className="second"
           data-state="time"
@@ -91,12 +90,11 @@ exports[`Clock Options Tests component matches snapshot 1`] = `
           type="number"
           value={1}
         />
-        <input
+        <label
           className="dot-separator"
-          disabled={true}
-          placeholder=":"
-          type="text"
-        />
+        >
+          :
+        </label>
         <input
           className="secondBreak"
           data-state="timeBreak"

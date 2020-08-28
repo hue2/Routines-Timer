@@ -23,9 +23,11 @@ export interface AppState {
     isBreak?: boolean,
     isPaused: boolean,
     showOptions: boolean,
-    tempRepeats: number,
     isStart: boolean;
     notify: boolean;
+    isMuted: boolean;
+    volume: number,
+    tempRepeat: number,
 }
 
 

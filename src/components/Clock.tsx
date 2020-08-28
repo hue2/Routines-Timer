@@ -1,9 +1,7 @@
 import * as React from 'react';
-//@ts-ignore;
-import sound from '../assets/sound/sony_beep_beep_alarm.mp3';
 
 export default function Clock( props: TimeProps)  {
-    const { isBreak, showOptions, time, remainingRepeats, repeats, notify } = props;
+    const { isBreak, showOptions, time, remainingRepeats, repeats } = props;
 
     return(
         <div>
@@ -11,7 +9,6 @@ export default function Clock( props: TimeProps)  {
                 <b>{time}</b>
             </div>
             <div className={!isBreak ? "hidden" : ""} id ="break-countdown">
-                {notify && <audio src={sound} autoPlay />}
                 <h3>Break time!</h3>
                 <b>{time}</b>
 
@@ -29,5 +26,4 @@ interface TimeProps {
     isBreak?: boolean,
     showOptions: boolean,
     remainingRepeats?: number,
-    notify: boolean,
 };
