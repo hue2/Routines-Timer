@@ -13,8 +13,7 @@ export function handleInput(state: any, event: any) {
  
 export function getCurrentClockStatus(state: any) {
   return {
-    isBreak: state.value < 1 && !state.isBreak, 
-    hasTime: state.value > 0,
+    startBreak: state.value < 1 && !state.isBreak, 
     hasBreaks: state.timeBreak.secondBreak > 0 || state.timeBreak.minuteBreak > 0,
     hasRepeats: state.repeats.tempRepeat > 0 && state.value < 1,  
   }  

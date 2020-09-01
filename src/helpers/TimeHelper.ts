@@ -8,11 +8,11 @@ export function formatBreakTime(time : ITimeBreak) {
     return `${formatTwoDigits(time.minuteBreak)}:${formatTwoDigits(time.secondBreak)}`;
 }
 
-export function getTotalSeconds(time: ITimeInfo) {
+export function convertTimeToSeconds(time: ITimeInfo) {
     return time.second + (time.minute * 60) + (time.hour * 3600);
 }
 
-export function getTotalBreakSeconds(time: ITimeBreak) {
+export function convertBreakTimeToSeconds(time: ITimeBreak) {
     return time.secondBreak + (time.minuteBreak * 60);
 }
 
