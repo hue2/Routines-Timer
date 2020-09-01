@@ -21,7 +21,7 @@ All notable changes to this project will be documented in this file
 - Volume adjustment
 - UI improvements
 
-## 08-27-2020
+## 08-31-2020
 ### Bug Fixes and improvements
 - Fixed timer fails to unpause during breaks
 - UI improvements
