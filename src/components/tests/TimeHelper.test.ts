@@ -1,5 +1,5 @@
 import { ITimeInfo, ITimeBreak } from "../TimeType"
-import { formatTime, formatBreakTime, getTotalSeconds, getTotalBreakSeconds, getDisplayTime, getDisplayBreakTime } from "../../helpers/TimeHelper";
+import { formatTime, formatBreakTime, convertTimeToSeconds, convertBreakTimeToSeconds, getDisplayTime, getDisplayBreakTime } from "../../helpers/TimeHelper";
 
 describe('Time helper tests', () => {
     let time : ITimeInfo = {
@@ -24,12 +24,12 @@ describe('Time helper tests', () => {
     });
 
     it('should get correct total seconds for time', () => {
-        let result = getTotalSeconds(time);
+        let result = convertTimeToSeconds(time);
         expect(result).toBe(3662);
     });
 
     it('should get correct total seconds for break time', () => {
-        let result = getTotalBreakSeconds(breakTime);
+        let result = convertBreakTimeToSeconds(breakTime);
         expect(result).toBe(302);
     });
 

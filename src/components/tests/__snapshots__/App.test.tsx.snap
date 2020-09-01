@@ -299,6 +299,7 @@ exports[`App tests component matches snapshot 1`] = `
     <a
       className="footer-link"
       href="https://github.com/hue2/Routines-Timer"
+      target="_blank"
     >
       Github
     </a>

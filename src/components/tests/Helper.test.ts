@@ -30,8 +30,7 @@ describe('Helper tests', () => {
 
     it('should return the correct clock status', () => {
         let status = getCurrentClockStatus(state);
-        expect(status.isBreak).toBe(false);
-        expect(status.hasTime).toBe(true);
+        expect(status.startBreak).toBe(false);
         expect(status.hasBreaks).toBe(true);
         expect(status.hasRepeats).toBe(false);
     });
